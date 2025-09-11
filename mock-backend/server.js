@@ -29,15 +29,84 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Mock AI function
+// Real AI function that calls the actual LLM
 async function callAI(prompt, context = '') {
     try {
-        // For note generation, use the actual LLM prompt
+        // For note generation, call the actual LLM with a proper prompt
         if (prompt.includes('notes') || prompt.includes('note')) {
-            // For now, use a mock response with proper textbook formatting
-            // TODO: Replace with actual LLM call when API is available
-            return {
-                content: `# 🤖 MACHINE LEARNING FUNDAMENTALS
+            // Create a comprehensive prompt for the LLM to generate structured notes
+            const notePrompt = `You are an expert AI study assistant. Generate comprehensive, engaging study notes from the provided audio content. 
+
+**REQUIREMENTS:**
+- Use a fun, student-friendly tone with emojis throughout
+- Structure like a textbook with clear headings and explanations
+- Include detailed explanations BEFORE any tables
+- Use the following format:
+
+# 🤖 [TOPIC NAME]
+
+## 📚 Topic & Intro
+[1-2 line introduction with emojis]
+
+## 🔬 Key Sections
+
+### 🎯 :blue_book: [Main Concept 1]
+[3-5 sentence explanation with examples]
+
+### 🧪 :microscope: [Main Concept 2] 
+[Detailed explanation with pros/cons]
+
+### 📊 :abacus: [Comparison Table]
+| Aspect | Option A | Option B |
+|--------|----------|----------|
+| Feature | Description | Description |
+
+## 🚀 Applications / Use Cases
+[Real-world examples]
+
+## ⚠️ Challenges / Limitations
+[Common problems and solutions]
+
+## 🎯 Quick Recap
+• Key point 1 🎓
+• Key point 2 🔍
+• Key point 3 🎮
+
+## 🧠 Quiz / Flashcards
+**Q1**: [Question]
+**A1**: [Answer]
+
+## 📝 Final Summary
+[2-3 sentence wrap-up with emojis]
+
+**Audio Content Context:** ${context || 'Audio file uploaded for note generation'}
+
+Generate engaging, comprehensive notes that students will love to study from!`;
+
+            // Call the actual LLM API
+            const llmResponse = await fetch('https://r1.staging.olakrutrim.com/chat/stream-response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-TOKEN': process.env.API_TOKEN || 'your-api-token-here'
+                },
+                body: JSON.stringify({
+                    message: notePrompt,
+                    searchType: 'others',
+                    chatId: 'note-generation-session'
+                })
+            });
+
+            if (llmResponse.ok) {
+                const llmData = await llmResponse.json();
+                return {
+                    content: llmData.content || llmData.message || llmData.response || llmData
+                };
+            } else {
+                console.log('LLM API not available, using fallback content');
+                // Fallback to mock content if LLM is not available
+                return {
+                    content: `# 🤖 MACHINE LEARNING FUNDAMENTALS
 
 ## 📚 Topic & Intro
 
@@ -208,7 +277,8 @@ Think of ML as **pattern recognition on steroids**! 🚀 It's a subset of AI tha
 ## 📝 Final Summary
 
 Machine learning is like giving computers the ability to learn from experience! 🎉 Whether you're using supervised learning for predictions, unsupervised learning for discovery, or reinforcement learning for decision-making, the key is choosing the right approach for your problem and data. Start simple, validate properly, and remember - the best ML models are the ones that actually solve real problems! 🚀✨`
-            };
+                };
+            }
         }
         
         // For other requests, use mock responses
