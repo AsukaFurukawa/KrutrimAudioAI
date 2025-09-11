@@ -343,41 +343,96 @@ app.get('/v1/modelConfigs', (req, res) => {
     console.log('🔧 Model configs request');
     
     const configs = {
-        modelData: [
-            {
-                id: 'gpt-4',
-                name: 'GPT-4',
-                description: 'Most capable model for complex tasks',
-                maxTokens: 8192,
-                isActive: true
-            }
-        ],
-        toolData: [
-            {
-                id: 'note-taking-agent',
-                label: 'Note Taking Agent',
-                description: 'Generate structured notes from audio content',
-                icon: '📝',
-                isActive: true,
-                category: 'productivity'
-            },
-            {
-                id: 'quiz-generator',
-                label: 'Quiz Generator', 
-                description: 'Create quizzes from study material',
-                icon: '🧠',
-                isActive: true,
-                category: 'education'
-            },
-            {
-                id: 'flashcard-creator',
-                label: 'Flashcard Creator',
-                description: 'Generate flashcards for memorization',
-                icon: '📚',
-                isActive: true,
-                category: 'education'
-            }
-        ]
+        code: 200,
+        data: {
+            modelData: [
+                {
+                    modelId: 'krutrim-v2',
+                    title: 'Krutrim V2',
+                    titleInside: 'Krutrim V2',
+                    description: 'Advanced AI model for comprehensive assistance',
+                    iconUrl: '/icons/input/krutrim.svg',
+                    iconUrlInside: '/icons/input/krutrim.svg',
+                    visibility: true,
+                    regeneration: true
+                }
+            ],
+            focusModes: [
+                {
+                    sourceId: 'general',
+                    title: 'General',
+                    titleInside: 'General',
+                    description: 'General purpose assistance',
+                    iconUrl: '/icons/input/general.svg',
+                    iconUrlInside: '/icons/input/general.svg',
+                    selectedColor: '#3B82F6',
+                    default: true
+                },
+                {
+                    sourceId: 'academic',
+                    title: 'Academic',
+                    titleInside: 'Academic',
+                    description: 'Academic and educational assistance',
+                    iconUrl: '/icons/input/academic.svg',
+                    iconUrlInside: '/icons/input/academic.svg',
+                    selectedColor: '#8B5CF6',
+                    default: false
+                }
+            ],
+            toolData: [
+                {
+                    id: 'note-taking-agent',
+                    toolId: 'note-taking-agent',
+                    modelId: 'note-taking-agent',
+                    title: 'Note Taking Agent',
+                    titleInside: 'Note Taking Agent',
+                    description: 'Generate structured notes from audio content',
+                    iconUrl: '/icons/input/doc.svg',
+                    iconUrlInside: '/icons/input/doc.svg',
+                    selectedColor: '#3B82F6',
+                    default: false,
+                    visibility: true,
+                    category: 'productivity',
+                    inputPlaceholder: 'Upload audio files to generate notes',
+                    headerText: 'Generate comprehensive notes from your audio content'
+                },
+                {
+                    id: 'quiz-generator',
+                    toolId: 'quiz-generator',
+                    modelId: 'quiz-generator',
+                    title: 'Quiz Generator',
+                    titleInside: 'Quiz Generator',
+                    description: 'Create quizzes from study material',
+                    iconUrl: '/icons/input/brain.svg',
+                    iconUrlInside: '/icons/input/brain.svg',
+                    selectedColor: '#10B981',
+                    default: false,
+                    visibility: true,
+                    category: 'education',
+                    inputPlaceholder: 'Upload content to generate quiz questions',
+                    headerText: 'Create interactive quizzes from your study material'
+                },
+                {
+                    id: 'flashcard-creator',
+                    toolId: 'flashcard-creator',
+                    modelId: 'flashcard-creator',
+                    title: 'Flashcard Creator',
+                    titleInside: 'Flashcard Creator',
+                    description: 'Generate flashcards for memorization',
+                    iconUrl: '/icons/input/cards.svg',
+                    iconUrlInside: '/icons/input/cards.svg',
+                    selectedColor: '#F59E0B',
+                    default: false,
+                    visibility: true,
+                    category: 'education',
+                    inputPlaceholder: 'Upload content to create flashcards',
+                    headerText: 'Generate flashcards for effective memorization'
+                }
+            ]
+        },
+        HttpStatus: 200,
+        timestamp: Date.now(),
+        status: 'success'
     };
     
     res.json(configs);
