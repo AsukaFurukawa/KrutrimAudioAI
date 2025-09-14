@@ -1,0 +1,3597 @@
+{
+  "dataset_name": "Note-Taking Agent Evaluation Dataset",
+  "version": "1.0.0",
+  "description": "Comprehensive evaluation dataset for testing note-taking agent capabilities across different content types and study material generation",
+  "total_samples": 100,
+  "categories": {
+    "audio_content": 25,
+    "video_content": 25,
+    "document_content": 25,
+    "youtube_content": 25
+  },
+  "samples": [
+    {
+      "id": 1,
+      "category": "audio_content",
+      "content_type": "lecture_audio",
+      "title": "Introduction to Mathematics",
+      "description": "Comprehensive Mathematics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "calculus",
+          "geometry",
+          "probability",
+          "statistics"
+        ],
+        "key_concepts": [
+          "geometry",
+          "calculus",
+          "statistics",
+          "probability",
+          "algebra"
+        ],
+        "examples": [
+          "calculus example",
+          "geometry example",
+          "probability example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 9,
+        "key_points": 10,
+        "action_items": 5
+      },
+      "difficulty_level": "beginner",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 2,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Advanced Economics Concepts",
+      "description": "Audio lecture covering basic Economics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "macroeconomics",
+          "microeconomics",
+          "trade"
+        ],
+        "key_concepts": [
+          "macroeconomics",
+          "finance",
+          "trade",
+          "microeconomics",
+          "development"
+        ],
+        "examples": [
+          "finance example",
+          "macroeconomics example",
+          "microeconomics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 18,
+        "key_points": 11,
+        "action_items": 6
+      },
+      "difficulty_level": "beginner",
+      "subject": "Economics"
+    },
+    {
+      "id": 3,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Biology Applications",
+      "description": "Audio lecture covering basic Biology concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "evolution",
+          "genetics",
+          "molecular biology",
+          "ecology"
+        ],
+        "key_concepts": [
+          "ecology",
+          "cell biology",
+          "molecular biology",
+          "evolution",
+          "genetics"
+        ],
+        "examples": [
+          "evolution example",
+          "genetics example",
+          "molecular biology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 20,
+        "key_points": 6,
+        "action_items": 8
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Biology"
+    },
+    {
+      "id": 4,
+      "category": "audio_content",
+      "content_type": "interview",
+      "title": "Understanding Psychology",
+      "description": "Comprehensive Psychology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "clinical psychology",
+          "developmental psychology",
+          "cognitive psychology",
+          "social psychology"
+        ],
+        "key_concepts": [
+          "developmental psychology",
+          "clinical psychology",
+          "cognitive psychology",
+          "behavioral psychology",
+          "social psychology"
+        ],
+        "examples": [
+          "clinical psychology example",
+          "developmental psychology example",
+          "cognitive psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 14,
+        "key_points": 8,
+        "action_items": 6
+      },
+      "difficulty_level": "advanced",
+      "subject": "Psychology"
+    },
+    {
+      "id": 5,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Understanding Physics",
+      "description": "Audio lecture covering basic Physics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "quantum physics",
+          "optics",
+          "mechanics",
+          "thermodynamics"
+        ],
+        "key_concepts": [
+          "optics",
+          "electromagnetism",
+          "thermodynamics",
+          "mechanics",
+          "quantum physics"
+        ],
+        "examples": [
+          "quantum physics example",
+          "optics example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 17,
+        "key_points": 9,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "Physics"
+    },
+    {
+      "id": 6,
+      "category": "audio_content",
+      "content_type": "lecture_audio",
+      "title": "Economics Applications",
+      "description": "Audio lecture covering basic Economics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "trade",
+          "development",
+          "macroeconomics",
+          "finance"
+        ],
+        "key_concepts": [
+          "microeconomics",
+          "development",
+          "trade",
+          "finance",
+          "macroeconomics"
+        ],
+        "examples": [
+          "trade example",
+          "development example",
+          "macroeconomics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 15,
+        "key_points": 10,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Economics"
+    },
+    {
+      "id": 7,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Understanding History",
+      "description": "Comprehensive History lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ancient history",
+          "world wars",
+          "modern history",
+          "civilizations"
+        ],
+        "key_concepts": [
+          "ancient history",
+          "medieval history",
+          "world wars",
+          "civilizations",
+          "modern history"
+        ],
+        "examples": [
+          "ancient history example",
+          "world wars example",
+          "modern history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 14,
+        "key_points": 6,
+        "action_items": 10
+      },
+      "difficulty_level": "advanced",
+      "subject": "History"
+    },
+    {
+      "id": 8,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Advanced Computer Science Concepts",
+      "description": "Audio lecture covering basic Computer Science concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "software engineering",
+          "data structures",
+          "algorithms",
+          "programming"
+        ],
+        "key_concepts": [
+          "programming",
+          "data structures",
+          "software engineering",
+          "algorithms",
+          "artificial intelligence"
+        ],
+        "examples": [
+          "software engineering example",
+          "data structures example",
+          "algorithms example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 10,
+        "flashcards": 18,
+        "key_points": 11,
+        "action_items": 6
+      },
+      "difficulty_level": "beginner",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 9,
+      "category": "audio_content",
+      "content_type": "lecture_audio",
+      "title": "Advanced History Concepts",
+      "description": "Audio lecture covering basic History concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "civilizations",
+          "medieval history",
+          "modern history",
+          "world wars"
+        ],
+        "key_concepts": [
+          "ancient history",
+          "medieval history",
+          "civilizations",
+          "world wars",
+          "modern history"
+        ],
+        "examples": [
+          "civilizations example",
+          "medieval history example",
+          "modern history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 12,
+        "key_points": 10,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "History"
+    },
+    {
+      "id": 10,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Advanced Environmental Science Concepts",
+      "description": "Educational audio content explaining Environmental Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "climate change",
+          "ecology",
+          "conservation",
+          "renewable energy"
+        ],
+        "key_concepts": [
+          "ecology",
+          "climate change",
+          "conservation",
+          "renewable energy",
+          "sustainability"
+        ],
+        "examples": [
+          "climate change example",
+          "ecology example",
+          "conservation example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 20,
+        "key_points": 8,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Environmental Science"
+    },
+    {
+      "id": 11,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "Biology Insights",
+      "description": "Interview-based content exploring Biology from multiple angles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ecology",
+          "genetics",
+          "cell biology",
+          "molecular biology"
+        ],
+        "key_concepts": [
+          "genetics",
+          "ecology",
+          "cell biology",
+          "molecular biology",
+          "evolution"
+        ],
+        "examples": [
+          "ecology example",
+          "genetics example",
+          "cell biology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 15,
+        "key_points": 11,
+        "action_items": 7
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 12,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "Physics Discussion",
+      "description": "Expert panel discussion on Physics topics and industry insights",
+      "expected_notes_structure": {
+        "main_topics": [
+          "electromagnetism",
+          "thermodynamics",
+          "mechanics",
+          "quantum physics"
+        ],
+        "key_concepts": [
+          "mechanics",
+          "optics",
+          "thermodynamics",
+          "quantum physics",
+          "electromagnetism"
+        ],
+        "examples": [
+          "electromagnetism example",
+          "thermodynamics example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 18,
+        "key_points": 8,
+        "action_items": 8
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 13,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "History Insights",
+      "description": "Expert panel discussion on History topics and industry insights",
+      "expected_notes_structure": {
+        "main_topics": [
+          "modern history",
+          "world wars",
+          "medieval history",
+          "ancient history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "modern history",
+          "ancient history",
+          "world wars",
+          "medieval history"
+        ],
+        "examples": [
+          "modern history example",
+          "world wars example",
+          "medieval history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 10,
+        "flashcards": 9,
+        "key_points": 9,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "History"
+    },
+    {
+      "id": 14,
+      "category": "audio_content",
+      "content_type": "interview",
+      "title": "Chemistry Fundamentals",
+      "description": "Educational audio content explaining Chemistry principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "organic chemistry",
+          "biochemistry",
+          "physical chemistry",
+          "inorganic chemistry"
+        ],
+        "key_concepts": [
+          "inorganic chemistry",
+          "analytical chemistry",
+          "biochemistry",
+          "physical chemistry",
+          "organic chemistry"
+        ],
+        "examples": [
+          "organic chemistry example",
+          "biochemistry example",
+          "physical chemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 11,
+        "key_points": 9,
+        "action_items": 4
+      },
+      "difficulty_level": "advanced",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 15,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "Chemistry Insights",
+      "description": "Interview-based content exploring Chemistry from multiple angles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "physical chemistry",
+          "analytical chemistry",
+          "biochemistry",
+          "inorganic chemistry"
+        ],
+        "key_concepts": [
+          "organic chemistry",
+          "analytical chemistry",
+          "inorganic chemistry",
+          "biochemistry",
+          "physical chemistry"
+        ],
+        "examples": [
+          "physical chemistry example",
+          "analytical chemistry example",
+          "biochemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 14,
+        "key_points": 8,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 16,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Advanced Physics Concepts",
+      "description": "Educational audio content explaining Physics principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "thermodynamics",
+          "quantum physics",
+          "mechanics",
+          "optics"
+        ],
+        "key_concepts": [
+          "mechanics",
+          "thermodynamics",
+          "electromagnetism",
+          "optics",
+          "quantum physics"
+        ],
+        "examples": [
+          "thermodynamics example",
+          "quantum physics example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 19,
+        "key_points": 9,
+        "action_items": 8
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 17,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Introduction to Biology",
+      "description": "Comprehensive Biology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "genetics",
+          "molecular biology",
+          "ecology",
+          "cell biology"
+        ],
+        "key_concepts": [
+          "ecology",
+          "cell biology",
+          "molecular biology",
+          "evolution",
+          "genetics"
+        ],
+        "examples": [
+          "genetics example",
+          "molecular biology example",
+          "ecology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 11,
+        "key_points": 9,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 18,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Physics Applications",
+      "description": "Audio lecture covering basic Physics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "quantum physics",
+          "electromagnetism",
+          "thermodynamics",
+          "mechanics"
+        ],
+        "key_concepts": [
+          "thermodynamics",
+          "electromagnetism",
+          "quantum physics",
+          "mechanics",
+          "optics"
+        ],
+        "examples": [
+          "quantum physics example",
+          "electromagnetism example",
+          "thermodynamics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 8,
+        "key_points": 6,
+        "action_items": 8
+      },
+      "difficulty_level": "advanced",
+      "subject": "Physics"
+    },
+    {
+      "id": 19,
+      "category": "audio_content",
+      "content_type": "interview",
+      "title": "History Fundamentals",
+      "description": "Audio lecture covering basic History concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "medieval history",
+          "civilizations",
+          "world wars",
+          "ancient history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "medieval history",
+          "modern history",
+          "ancient history",
+          "world wars"
+        ],
+        "examples": [
+          "medieval history example",
+          "civilizations example",
+          "world wars example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 17,
+        "key_points": 8,
+        "action_items": 4
+      },
+      "difficulty_level": "beginner",
+      "subject": "History"
+    },
+    {
+      "id": 20,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "Mathematics Insights",
+      "description": "Interview-based content exploring Mathematics from multiple angles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "geometry",
+          "probability",
+          "calculus",
+          "statistics"
+        ],
+        "key_concepts": [
+          "probability",
+          "algebra",
+          "geometry",
+          "statistics",
+          "calculus"
+        ],
+        "examples": [
+          "geometry example",
+          "probability example",
+          "calculus example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 19,
+        "key_points": 11,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 21,
+      "category": "audio_content",
+      "content_type": "conference_presentation",
+      "title": "Business Applications",
+      "description": "Comprehensive Business lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "finance",
+          "marketing",
+          "strategy"
+        ],
+        "key_concepts": [
+          "management",
+          "marketing",
+          "entrepreneurship",
+          "strategy",
+          "finance"
+        ],
+        "examples": [
+          "management example",
+          "finance example",
+          "marketing example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 15,
+        "key_points": 8,
+        "action_items": 7
+      },
+      "difficulty_level": "beginner",
+      "subject": "Business"
+    },
+    {
+      "id": 22,
+      "category": "audio_content",
+      "content_type": "lecture_audio",
+      "title": "Understanding Business",
+      "description": "Comprehensive Business lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "marketing",
+          "entrepreneurship",
+          "management"
+        ],
+        "key_concepts": [
+          "strategy",
+          "marketing",
+          "management",
+          "entrepreneurship",
+          "finance"
+        ],
+        "examples": [
+          "finance example",
+          "marketing example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 10,
+        "flashcards": 10,
+        "key_points": 11,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 23,
+      "category": "audio_content",
+      "content_type": "podcast",
+      "title": "Mathematics Insights",
+      "description": "Interview-based content exploring Mathematics from multiple angles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "statistics",
+          "probability",
+          "algebra",
+          "calculus"
+        ],
+        "key_concepts": [
+          "calculus",
+          "probability",
+          "statistics",
+          "geometry",
+          "algebra"
+        ],
+        "examples": [
+          "statistics example",
+          "probability example",
+          "algebra example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 15,
+        "key_points": 9,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 24,
+      "category": "audio_content",
+      "content_type": "interview",
+      "title": "Advanced Computer Science Concepts",
+      "description": "Comprehensive Computer Science lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "programming",
+          "artificial intelligence",
+          "data structures",
+          "algorithms"
+        ],
+        "key_concepts": [
+          "programming",
+          "software engineering",
+          "data structures",
+          "algorithms",
+          "artificial intelligence"
+        ],
+        "examples": [
+          "programming example",
+          "artificial intelligence example",
+          "data structures example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 12,
+        "key_points": 7,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 25,
+      "category": "audio_content",
+      "content_type": "interview",
+      "title": "Computer Science Fundamentals",
+      "description": "Audio lecture covering basic Computer Science concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "algorithms",
+          "software engineering",
+          "artificial intelligence",
+          "data structures"
+        ],
+        "key_concepts": [
+          "software engineering",
+          "programming",
+          "algorithms",
+          "data structures",
+          "artificial intelligence"
+        ],
+        "examples": [
+          "algorithms example",
+          "software engineering example",
+          "artificial intelligence example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 14,
+        "key_points": 9,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 26,
+      "category": "video_content",
+      "content_type": "lecture_video",
+      "title": "Introduction to Business",
+      "description": "Educational audio content explaining Business principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "marketing",
+          "entrepreneurship",
+          "finance"
+        ],
+        "key_concepts": [
+          "management",
+          "marketing",
+          "entrepreneurship",
+          "finance",
+          "strategy"
+        ],
+        "examples": [
+          "management example",
+          "marketing example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 12,
+        "key_points": 8,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 27,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Understanding Mathematics",
+      "description": "Audio lecture covering basic Mathematics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "calculus",
+          "statistics",
+          "algebra",
+          "geometry"
+        ],
+        "key_concepts": [
+          "statistics",
+          "algebra",
+          "probability",
+          "calculus",
+          "geometry"
+        ],
+        "examples": [
+          "calculus example",
+          "statistics example",
+          "algebra example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 19,
+        "key_points": 12,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 28,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Advanced Business Concepts",
+      "description": "Educational audio content explaining Business principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "entrepreneurship",
+          "strategy",
+          "management"
+        ],
+        "key_concepts": [
+          "entrepreneurship",
+          "strategy",
+          "finance",
+          "management",
+          "marketing"
+        ],
+        "examples": [
+          "finance example",
+          "entrepreneurship example",
+          "strategy example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 9,
+        "key_points": 11,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Business"
+    },
+    {
+      "id": 29,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "History Step-by-Step",
+      "description": "YouTube tutorial covering History basics and practical implementation",
+      "expected_notes_structure": {
+        "main_topics": [
+          "civilizations",
+          "modern history",
+          "medieval history",
+          "ancient history"
+        ],
+        "key_concepts": [
+          "medieval history",
+          "world wars",
+          "ancient history",
+          "modern history",
+          "civilizations"
+        ],
+        "examples": [
+          "civilizations example",
+          "modern history example",
+          "medieval history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 14,
+        "key_points": 6,
+        "action_items": 8
+      },
+      "difficulty_level": "intermediate",
+      "subject": "History"
+    },
+    {
+      "id": 30,
+      "category": "video_content",
+      "content_type": "educational_video",
+      "title": "Biology Guide",
+      "description": "Comprehensive video guide to understanding Biology principles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "genetics",
+          "ecology",
+          "evolution",
+          "molecular biology"
+        ],
+        "key_concepts": [
+          "molecular biology",
+          "cell biology",
+          "evolution",
+          "genetics",
+          "ecology"
+        ],
+        "examples": [
+          "genetics example",
+          "ecology example",
+          "evolution example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 9,
+        "key_points": 12,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Biology"
+    },
+    {
+      "id": 31,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "Economics Step-by-Step",
+      "description": "Comprehensive guide to learning Economics from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "macroeconomics",
+          "finance",
+          "development",
+          "microeconomics"
+        ],
+        "key_concepts": [
+          "development",
+          "microeconomics",
+          "finance",
+          "macroeconomics",
+          "trade"
+        ],
+        "examples": [
+          "macroeconomics example",
+          "finance example",
+          "development example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 20,
+        "key_points": 12,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "Economics"
+    },
+    {
+      "id": 32,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Understanding Economics",
+      "description": "Comprehensive Economics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "microeconomics",
+          "development",
+          "trade"
+        ],
+        "key_concepts": [
+          "finance",
+          "trade",
+          "development",
+          "microeconomics",
+          "macroeconomics"
+        ],
+        "examples": [
+          "finance example",
+          "microeconomics example",
+          "development example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 8,
+        "key_points": 11,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Economics"
+    },
+    {
+      "id": 33,
+      "category": "video_content",
+      "content_type": "educational_video",
+      "title": "Psychology Explained",
+      "description": "Comprehensive video guide to understanding Psychology principles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "clinical psychology",
+          "behavioral psychology",
+          "cognitive psychology",
+          "social psychology"
+        ],
+        "key_concepts": [
+          "clinical psychology",
+          "behavioral psychology",
+          "cognitive psychology",
+          "social psychology",
+          "developmental psychology"
+        ],
+        "examples": [
+          "clinical psychology example",
+          "behavioral psychology example",
+          "cognitive psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 20,
+        "key_points": 10,
+        "action_items": 5
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Psychology"
+    },
+    {
+      "id": 34,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "Computer Science Step-by-Step",
+      "description": "YouTube tutorial covering Computer Science basics and practical implementation",
+      "expected_notes_structure": {
+        "main_topics": [
+          "software engineering",
+          "data structures",
+          "algorithms",
+          "programming"
+        ],
+        "key_concepts": [
+          "data structures",
+          "algorithms",
+          "software engineering",
+          "artificial intelligence",
+          "programming"
+        ],
+        "examples": [
+          "software engineering example",
+          "data structures example",
+          "algorithms example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 15,
+        "key_points": 12,
+        "action_items": 6
+      },
+      "difficulty_level": "beginner",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 35,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Biology Applications",
+      "description": "Audio lecture covering basic Biology concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ecology",
+          "molecular biology",
+          "genetics",
+          "cell biology"
+        ],
+        "key_concepts": [
+          "ecology",
+          "evolution",
+          "genetics",
+          "molecular biology",
+          "cell biology"
+        ],
+        "examples": [
+          "ecology example",
+          "molecular biology example",
+          "genetics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 10,
+        "key_points": 6,
+        "action_items": 5
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 36,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Understanding Psychology",
+      "description": "Comprehensive Psychology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "social psychology",
+          "cognitive psychology",
+          "clinical psychology",
+          "behavioral psychology"
+        ],
+        "key_concepts": [
+          "cognitive psychology",
+          "social psychology",
+          "behavioral psychology",
+          "developmental psychology",
+          "clinical psychology"
+        ],
+        "examples": [
+          "social psychology example",
+          "cognitive psychology example",
+          "clinical psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 14,
+        "key_points": 9,
+        "action_items": 6
+      },
+      "difficulty_level": "beginner",
+      "subject": "Psychology"
+    },
+    {
+      "id": 37,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "Economics Step-by-Step",
+      "description": "Educational video teaching Economics concepts through hands-on examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "development",
+          "macroeconomics",
+          "trade",
+          "microeconomics"
+        ],
+        "key_concepts": [
+          "trade",
+          "finance",
+          "development",
+          "macroeconomics",
+          "microeconomics"
+        ],
+        "examples": [
+          "development example",
+          "macroeconomics example",
+          "trade example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 10,
+        "key_points": 7,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Economics"
+    },
+    {
+      "id": 38,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Understanding Psychology",
+      "description": "Educational audio content explaining Psychology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "behavioral psychology",
+          "social psychology",
+          "clinical psychology",
+          "developmental psychology"
+        ],
+        "key_concepts": [
+          "behavioral psychology",
+          "social psychology",
+          "cognitive psychology",
+          "developmental psychology",
+          "clinical psychology"
+        ],
+        "examples": [
+          "behavioral psychology example",
+          "social psychology example",
+          "clinical psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 9,
+        "key_points": 11,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Psychology"
+    },
+    {
+      "id": 39,
+      "category": "video_content",
+      "content_type": "educational_video",
+      "title": "Computer Science Guide",
+      "description": "Educational video explaining Computer Science concepts with visual aids and examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "data structures",
+          "artificial intelligence",
+          "programming",
+          "algorithms"
+        ],
+        "key_concepts": [
+          "software engineering",
+          "algorithms",
+          "programming",
+          "artificial intelligence",
+          "data structures"
+        ],
+        "examples": [
+          "data structures example",
+          "artificial intelligence example",
+          "programming example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 13,
+        "key_points": 9,
+        "action_items": 6
+      },
+      "difficulty_level": "advanced",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 40,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "Environmental Science Step-by-Step",
+      "description": "Comprehensive guide to learning Environmental Science from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "renewable energy",
+          "ecology",
+          "climate change",
+          "conservation"
+        ],
+        "key_concepts": [
+          "sustainability",
+          "renewable energy",
+          "conservation",
+          "ecology",
+          "climate change"
+        ],
+        "examples": [
+          "renewable energy example",
+          "ecology example",
+          "climate change example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 9,
+        "key_points": 7,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "Environmental Science"
+    },
+    {
+      "id": 41,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "How to History",
+      "description": "Comprehensive guide to learning History from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "civilizations",
+          "world wars",
+          "ancient history",
+          "modern history"
+        ],
+        "key_concepts": [
+          "world wars",
+          "civilizations",
+          "modern history",
+          "ancient history",
+          "medieval history"
+        ],
+        "examples": [
+          "civilizations example",
+          "world wars example",
+          "ancient history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 10,
+        "key_points": 8,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "History"
+    },
+    {
+      "id": 42,
+      "category": "video_content",
+      "content_type": "lecture_video",
+      "title": "Physics Applications",
+      "description": "Educational audio content explaining Physics principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "electromagnetism",
+          "quantum physics",
+          "mechanics",
+          "thermodynamics"
+        ],
+        "key_concepts": [
+          "optics",
+          "quantum physics",
+          "electromagnetism",
+          "mechanics",
+          "thermodynamics"
+        ],
+        "examples": [
+          "electromagnetism example",
+          "quantum physics example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 14,
+        "key_points": 9,
+        "action_items": 6
+      },
+      "difficulty_level": "beginner",
+      "subject": "Physics"
+    },
+    {
+      "id": 43,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Introduction to Computer Science",
+      "description": "Comprehensive Computer Science lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "data structures",
+          "algorithms",
+          "programming",
+          "software engineering"
+        ],
+        "key_concepts": [
+          "data structures",
+          "algorithms",
+          "artificial intelligence",
+          "programming",
+          "software engineering"
+        ],
+        "examples": [
+          "data structures example",
+          "algorithms example",
+          "programming example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 15,
+        "key_points": 12,
+        "action_items": 8
+      },
+      "difficulty_level": "advanced",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 44,
+      "category": "video_content",
+      "content_type": "educational_video",
+      "title": "Business Explained",
+      "description": "Educational video explaining Business concepts with visual aids and examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "strategy",
+          "management",
+          "entrepreneurship",
+          "finance"
+        ],
+        "key_concepts": [
+          "marketing",
+          "finance",
+          "management",
+          "strategy",
+          "entrepreneurship"
+        ],
+        "examples": [
+          "strategy example",
+          "management example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 11,
+        "key_points": 11,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 45,
+      "category": "video_content",
+      "content_type": "lecture_video",
+      "title": "Economics Applications",
+      "description": "Educational audio content explaining Economics principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "microeconomics",
+          "trade",
+          "finance",
+          "development"
+        ],
+        "key_concepts": [
+          "macroeconomics",
+          "microeconomics",
+          "finance",
+          "development",
+          "trade"
+        ],
+        "examples": [
+          "microeconomics example",
+          "trade example",
+          "finance example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 18,
+        "key_points": 11,
+        "action_items": 8
+      },
+      "difficulty_level": "advanced",
+      "subject": "Economics"
+    },
+    {
+      "id": 46,
+      "category": "video_content",
+      "content_type": "documentary",
+      "title": "Chemistry Applications",
+      "description": "Educational audio content explaining Chemistry principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "biochemistry",
+          "physical chemistry",
+          "inorganic chemistry",
+          "organic chemistry"
+        ],
+        "key_concepts": [
+          "analytical chemistry",
+          "organic chemistry",
+          "physical chemistry",
+          "inorganic chemistry",
+          "biochemistry"
+        ],
+        "examples": [
+          "biochemistry example",
+          "physical chemistry example",
+          "inorganic chemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 18,
+        "key_points": 9,
+        "action_items": 5
+      },
+      "difficulty_level": "beginner",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 47,
+      "category": "video_content",
+      "content_type": "educational_video",
+      "title": "Learn Economics",
+      "description": "Educational video explaining Economics concepts with visual aids and examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "trade",
+          "microeconomics",
+          "development"
+        ],
+        "key_concepts": [
+          "development",
+          "trade",
+          "macroeconomics",
+          "finance",
+          "microeconomics"
+        ],
+        "examples": [
+          "finance example",
+          "trade example",
+          "microeconomics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 11,
+        "key_points": 9,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Economics"
+    },
+    {
+      "id": 48,
+      "category": "video_content",
+      "content_type": "lecture_video",
+      "title": "Understanding Economics",
+      "description": "Comprehensive Economics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "development",
+          "macroeconomics",
+          "trade",
+          "microeconomics"
+        ],
+        "key_concepts": [
+          "trade",
+          "development",
+          "finance",
+          "microeconomics",
+          "macroeconomics"
+        ],
+        "examples": [
+          "development example",
+          "macroeconomics example",
+          "trade example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 12,
+        "key_points": 12,
+        "action_items": 5
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Economics"
+    },
+    {
+      "id": 49,
+      "category": "video_content",
+      "content_type": "lecture_video",
+      "title": "Introduction to Business",
+      "description": "Audio lecture covering basic Business concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "marketing",
+          "entrepreneurship",
+          "strategy",
+          "finance"
+        ],
+        "key_concepts": [
+          "strategy",
+          "management",
+          "marketing",
+          "finance",
+          "entrepreneurship"
+        ],
+        "examples": [
+          "marketing example",
+          "entrepreneurship example",
+          "strategy example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 14,
+        "key_points": 12,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 50,
+      "category": "video_content",
+      "content_type": "tutorial_video",
+      "title": "Business Tutorial",
+      "description": "Comprehensive guide to learning Business from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "finance",
+          "management",
+          "entrepreneurship",
+          "marketing"
+        ],
+        "key_concepts": [
+          "finance",
+          "entrepreneurship",
+          "marketing",
+          "management",
+          "strategy"
+        ],
+        "examples": [
+          "finance example",
+          "management example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 13,
+        "key_points": 10,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Business"
+    },
+    {
+      "id": 51,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Introduction to Chemistry",
+      "description": "Educational audio content explaining Chemistry principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "organic chemistry",
+          "analytical chemistry",
+          "biochemistry",
+          "inorganic chemistry"
+        ],
+        "key_concepts": [
+          "organic chemistry",
+          "physical chemistry",
+          "analytical chemistry",
+          "inorganic chemistry",
+          "biochemistry"
+        ],
+        "examples": [
+          "organic chemistry example",
+          "analytical chemistry example",
+          "biochemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 15,
+        "key_points": 8,
+        "action_items": 4
+      },
+      "difficulty_level": "beginner",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 52,
+      "category": "document_content",
+      "content_type": "textbook_chapter",
+      "title": "Advanced Environmental Science Concepts",
+      "description": "Audio lecture covering basic Environmental Science concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "climate change",
+          "renewable energy",
+          "ecology",
+          "sustainability"
+        ],
+        "key_concepts": [
+          "sustainability",
+          "climate change",
+          "renewable energy",
+          "conservation",
+          "ecology"
+        ],
+        "examples": [
+          "climate change example",
+          "renewable energy example",
+          "ecology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 14,
+        "key_points": 8,
+        "action_items": 4
+      },
+      "difficulty_level": "beginner",
+      "subject": "Environmental Science"
+    },
+    {
+      "id": 53,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Understanding Biology",
+      "description": "Educational audio content explaining Biology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "genetics",
+          "ecology",
+          "cell biology",
+          "evolution"
+        ],
+        "key_concepts": [
+          "ecology",
+          "genetics",
+          "evolution",
+          "cell biology",
+          "molecular biology"
+        ],
+        "examples": [
+          "genetics example",
+          "ecology example",
+          "cell biology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 8,
+        "key_points": 12,
+        "action_items": 5
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 54,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Advanced Biology Concepts",
+      "description": "Comprehensive Biology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "molecular biology",
+          "evolution",
+          "cell biology",
+          "genetics"
+        ],
+        "key_concepts": [
+          "evolution",
+          "genetics",
+          "molecular biology",
+          "cell biology",
+          "ecology"
+        ],
+        "examples": [
+          "molecular biology example",
+          "evolution example",
+          "cell biology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 20,
+        "key_points": 9,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Biology"
+    },
+    {
+      "id": 55,
+      "category": "document_content",
+      "content_type": "research_paper",
+      "title": "Advances in Mathematics",
+      "description": "Scientific study analyzing Mathematics phenomena and applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "algebra",
+          "calculus",
+          "geometry",
+          "statistics"
+        ],
+        "key_concepts": [
+          "calculus",
+          "statistics",
+          "geometry",
+          "probability",
+          "algebra"
+        ],
+        "examples": [
+          "algebra example",
+          "calculus example",
+          "geometry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 9,
+        "key_points": 12,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 56,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Understanding Economics",
+      "description": "Comprehensive Economics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "microeconomics",
+          "development",
+          "macroeconomics",
+          "finance"
+        ],
+        "key_concepts": [
+          "macroeconomics",
+          "trade",
+          "development",
+          "finance",
+          "microeconomics"
+        ],
+        "examples": [
+          "microeconomics example",
+          "development example",
+          "macroeconomics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 19,
+        "key_points": 12,
+        "action_items": 4
+      },
+      "difficulty_level": "advanced",
+      "subject": "Economics"
+    },
+    {
+      "id": 57,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Biology Applications",
+      "description": "Educational audio content explaining Biology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "molecular biology",
+          "ecology",
+          "genetics",
+          "evolution"
+        ],
+        "key_concepts": [
+          "evolution",
+          "genetics",
+          "molecular biology",
+          "cell biology",
+          "ecology"
+        ],
+        "examples": [
+          "molecular biology example",
+          "ecology example",
+          "genetics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 20,
+        "key_points": 6,
+        "action_items": 8
+      },
+      "difficulty_level": "advanced",
+      "subject": "Biology"
+    },
+    {
+      "id": 58,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Introduction to Psychology",
+      "description": "Educational audio content explaining Psychology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "developmental psychology",
+          "behavioral psychology",
+          "social psychology",
+          "clinical psychology"
+        ],
+        "key_concepts": [
+          "developmental psychology",
+          "social psychology",
+          "behavioral psychology",
+          "clinical psychology",
+          "cognitive psychology"
+        ],
+        "examples": [
+          "developmental psychology example",
+          "behavioral psychology example",
+          "social psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 14,
+        "key_points": 7,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Psychology"
+    },
+    {
+      "id": 59,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Introduction to Computer Science",
+      "description": "Educational audio content explaining Computer Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "data structures",
+          "algorithms",
+          "programming",
+          "artificial intelligence"
+        ],
+        "key_concepts": [
+          "programming",
+          "data structures",
+          "artificial intelligence",
+          "algorithms",
+          "software engineering"
+        ],
+        "examples": [
+          "data structures example",
+          "algorithms example",
+          "programming example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 12,
+        "key_points": 7,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 60,
+      "category": "document_content",
+      "content_type": "textbook_chapter",
+      "title": "Understanding Physics",
+      "description": "Comprehensive Physics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "electromagnetism",
+          "thermodynamics",
+          "optics",
+          "mechanics"
+        ],
+        "key_concepts": [
+          "optics",
+          "mechanics",
+          "quantum physics",
+          "electromagnetism",
+          "thermodynamics"
+        ],
+        "examples": [
+          "electromagnetism example",
+          "thermodynamics example",
+          "optics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 19,
+        "key_points": 11,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 61,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Introduction to History",
+      "description": "Comprehensive History lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "modern history",
+          "medieval history",
+          "ancient history",
+          "world wars"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "modern history",
+          "ancient history",
+          "world wars",
+          "medieval history"
+        ],
+        "examples": [
+          "modern history example",
+          "medieval history example",
+          "ancient history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 18,
+        "key_points": 10,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "History"
+    },
+    {
+      "id": 62,
+      "category": "document_content",
+      "content_type": "textbook_chapter",
+      "title": "Introduction to Biology",
+      "description": "Audio lecture covering basic Biology concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "molecular biology",
+          "cell biology",
+          "ecology",
+          "evolution"
+        ],
+        "key_concepts": [
+          "molecular biology",
+          "ecology",
+          "evolution",
+          "cell biology",
+          "genetics"
+        ],
+        "examples": [
+          "molecular biology example",
+          "cell biology example",
+          "ecology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 16,
+        "key_points": 10,
+        "action_items": 6
+      },
+      "difficulty_level": "advanced",
+      "subject": "Biology"
+    },
+    {
+      "id": 63,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Understanding Biology",
+      "description": "Audio lecture covering basic Biology concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "molecular biology",
+          "genetics",
+          "evolution",
+          "cell biology"
+        ],
+        "key_concepts": [
+          "ecology",
+          "cell biology",
+          "genetics",
+          "evolution",
+          "molecular biology"
+        ],
+        "examples": [
+          "molecular biology example",
+          "genetics example",
+          "evolution example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 12,
+        "key_points": 12,
+        "action_items": 5
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 64,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Advanced Business Concepts",
+      "description": "Audio lecture covering basic Business concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "strategy",
+          "entrepreneurship",
+          "finance"
+        ],
+        "key_concepts": [
+          "strategy",
+          "marketing",
+          "management",
+          "entrepreneurship",
+          "finance"
+        ],
+        "examples": [
+          "management example",
+          "strategy example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 14,
+        "key_points": 12,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 65,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Advanced Psychology Concepts",
+      "description": "Comprehensive Psychology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "developmental psychology",
+          "behavioral psychology",
+          "social psychology",
+          "clinical psychology"
+        ],
+        "key_concepts": [
+          "social psychology",
+          "developmental psychology",
+          "cognitive psychology",
+          "clinical psychology",
+          "behavioral psychology"
+        ],
+        "examples": [
+          "developmental psychology example",
+          "behavioral psychology example",
+          "social psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 11,
+        "key_points": 6,
+        "action_items": 4
+      },
+      "difficulty_level": "beginner",
+      "subject": "Psychology"
+    },
+    {
+      "id": 66,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Psychology Fundamentals",
+      "description": "Educational audio content explaining Psychology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "cognitive psychology",
+          "social psychology",
+          "clinical psychology",
+          "behavioral psychology"
+        ],
+        "key_concepts": [
+          "developmental psychology",
+          "behavioral psychology",
+          "cognitive psychology",
+          "clinical psychology",
+          "social psychology"
+        ],
+        "examples": [
+          "cognitive psychology example",
+          "social psychology example",
+          "clinical psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 16,
+        "key_points": 8,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Psychology"
+    },
+    {
+      "id": 67,
+      "category": "document_content",
+      "content_type": "research_paper",
+      "title": "Physics Study",
+      "description": "Academic paper discussing Physics research findings and implications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "optics",
+          "thermodynamics",
+          "mechanics",
+          "quantum physics"
+        ],
+        "key_concepts": [
+          "electromagnetism",
+          "quantum physics",
+          "thermodynamics",
+          "mechanics",
+          "optics"
+        ],
+        "examples": [
+          "optics example",
+          "thermodynamics example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 8,
+        "key_points": 10,
+        "action_items": 4
+      },
+      "difficulty_level": "beginner",
+      "subject": "Physics"
+    },
+    {
+      "id": 68,
+      "category": "document_content",
+      "content_type": "research_paper",
+      "title": "Exploring Physics",
+      "description": "Academic paper discussing Physics research findings and implications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "mechanics",
+          "quantum physics",
+          "electromagnetism",
+          "optics"
+        ],
+        "key_concepts": [
+          "quantum physics",
+          "thermodynamics",
+          "optics",
+          "mechanics",
+          "electromagnetism"
+        ],
+        "examples": [
+          "mechanics example",
+          "quantum physics example",
+          "electromagnetism example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 16,
+        "key_points": 10,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 69,
+      "category": "document_content",
+      "content_type": "research_paper",
+      "title": "History Analysis",
+      "description": "Academic paper discussing History research findings and implications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ancient history",
+          "civilizations",
+          "medieval history",
+          "modern history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "medieval history",
+          "ancient history",
+          "modern history",
+          "world wars"
+        ],
+        "examples": [
+          "ancient history example",
+          "civilizations example",
+          "medieval history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 14,
+        "key_points": 11,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "History"
+    },
+    {
+      "id": 70,
+      "category": "document_content",
+      "content_type": "textbook_chapter",
+      "title": "Physics Applications",
+      "description": "Comprehensive Physics lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "thermodynamics",
+          "mechanics",
+          "quantum physics",
+          "optics"
+        ],
+        "key_concepts": [
+          "mechanics",
+          "optics",
+          "quantum physics",
+          "thermodynamics",
+          "electromagnetism"
+        ],
+        "examples": [
+          "thermodynamics example",
+          "mechanics example",
+          "quantum physics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 18,
+        "key_points": 7,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 71,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Understanding Psychology",
+      "description": "Educational audio content explaining Psychology principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "clinical psychology",
+          "behavioral psychology",
+          "social psychology",
+          "developmental psychology"
+        ],
+        "key_concepts": [
+          "developmental psychology",
+          "cognitive psychology",
+          "social psychology",
+          "behavioral psychology",
+          "clinical psychology"
+        ],
+        "examples": [
+          "clinical psychology example",
+          "behavioral psychology example",
+          "social psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 14,
+        "key_points": 10,
+        "action_items": 4
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Psychology"
+    },
+    {
+      "id": 72,
+      "category": "document_content",
+      "content_type": "textbook_chapter",
+      "title": "Business Fundamentals",
+      "description": "Comprehensive Business lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "strategy",
+          "finance",
+          "entrepreneurship"
+        ],
+        "key_concepts": [
+          "marketing",
+          "finance",
+          "entrepreneurship",
+          "management",
+          "strategy"
+        ],
+        "examples": [
+          "management example",
+          "strategy example",
+          "finance example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 8,
+        "key_points": 10,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Business"
+    },
+    {
+      "id": 73,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Computer Science Applications",
+      "description": "Audio lecture covering basic Computer Science concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "algorithms",
+          "artificial intelligence",
+          "data structures",
+          "software engineering"
+        ],
+        "key_concepts": [
+          "algorithms",
+          "data structures",
+          "programming",
+          "artificial intelligence",
+          "software engineering"
+        ],
+        "examples": [
+          "algorithms example",
+          "artificial intelligence example",
+          "data structures example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 11,
+        "key_points": 6,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 74,
+      "category": "document_content",
+      "content_type": "article",
+      "title": "Advanced Computer Science Concepts",
+      "description": "Educational audio content explaining Computer Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "programming",
+          "data structures",
+          "software engineering",
+          "artificial intelligence"
+        ],
+        "key_concepts": [
+          "algorithms",
+          "software engineering",
+          "programming",
+          "artificial intelligence",
+          "data structures"
+        ],
+        "examples": [
+          "programming example",
+          "data structures example",
+          "software engineering example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 12,
+        "key_points": 12,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 75,
+      "category": "document_content",
+      "content_type": "report",
+      "title": "Computer Science Applications",
+      "description": "Educational audio content explaining Computer Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "artificial intelligence",
+          "data structures",
+          "algorithms",
+          "programming"
+        ],
+        "key_concepts": [
+          "artificial intelligence",
+          "programming",
+          "software engineering",
+          "algorithms",
+          "data structures"
+        ],
+        "examples": [
+          "artificial intelligence example",
+          "data structures example",
+          "algorithms example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 20,
+        "key_points": 6,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 76,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "History Workshop",
+      "description": "Educational video teaching History concepts through hands-on examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "medieval history",
+          "ancient history",
+          "world wars",
+          "civilizations"
+        ],
+        "key_concepts": [
+          "world wars",
+          "modern history",
+          "medieval history",
+          "civilizations",
+          "ancient history"
+        ],
+        "examples": [
+          "medieval history example",
+          "ancient history example",
+          "world wars example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 17,
+        "key_points": 7,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "History"
+    },
+    {
+      "id": 77,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "Biology Step-by-Step",
+      "description": "YouTube tutorial covering Biology basics and practical implementation",
+      "expected_notes_structure": {
+        "main_topics": [
+          "evolution",
+          "molecular biology",
+          "genetics",
+          "ecology"
+        ],
+        "key_concepts": [
+          "ecology",
+          "genetics",
+          "cell biology",
+          "evolution",
+          "molecular biology"
+        ],
+        "examples": [
+          "evolution example",
+          "molecular biology example",
+          "genetics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 17,
+        "key_points": 9,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Biology"
+    },
+    {
+      "id": 78,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "How to Mathematics",
+      "description": "YouTube tutorial covering Mathematics basics and practical implementation",
+      "expected_notes_structure": {
+        "main_topics": [
+          "probability",
+          "algebra",
+          "geometry",
+          "statistics"
+        ],
+        "key_concepts": [
+          "geometry",
+          "probability",
+          "calculus",
+          "algebra",
+          "statistics"
+        ],
+        "examples": [
+          "probability example",
+          "algebra example",
+          "geometry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 6,
+        "flashcards": 9,
+        "key_points": 8,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 79,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Learn Physics",
+      "description": "Comprehensive video guide to understanding Physics principles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "thermodynamics",
+          "electromagnetism",
+          "mechanics",
+          "quantum physics"
+        ],
+        "key_concepts": [
+          "mechanics",
+          "electromagnetism",
+          "quantum physics",
+          "thermodynamics",
+          "optics"
+        ],
+        "examples": [
+          "thermodynamics example",
+          "electromagnetism example",
+          "mechanics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 9,
+        "key_points": 7,
+        "action_items": 9
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 80,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "History Tutorial",
+      "description": "Educational video teaching History concepts through hands-on examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "modern history",
+          "medieval history",
+          "world wars",
+          "ancient history"
+        ],
+        "key_concepts": [
+          "modern history",
+          "ancient history",
+          "world wars",
+          "medieval history",
+          "civilizations"
+        ],
+        "examples": [
+          "modern history example",
+          "medieval history example",
+          "world wars example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 10,
+        "key_points": 9,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "History"
+    },
+    {
+      "id": 81,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "Economics Step-by-Step",
+      "description": "Educational video teaching Economics concepts through hands-on examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "development",
+          "finance",
+          "microeconomics",
+          "macroeconomics"
+        ],
+        "key_concepts": [
+          "trade",
+          "macroeconomics",
+          "microeconomics",
+          "finance",
+          "development"
+        ],
+        "examples": [
+          "development example",
+          "finance example",
+          "microeconomics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 11,
+        "key_points": 8,
+        "action_items": 10
+      },
+      "difficulty_level": "advanced",
+      "subject": "Economics"
+    },
+    {
+      "id": 82,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Chemistry Guide",
+      "description": "Step-by-step tutorial covering Chemistry fundamentals and advanced topics",
+      "expected_notes_structure": {
+        "main_topics": [
+          "biochemistry",
+          "analytical chemistry",
+          "organic chemistry",
+          "physical chemistry"
+        ],
+        "key_concepts": [
+          "physical chemistry",
+          "analytical chemistry",
+          "organic chemistry",
+          "biochemistry",
+          "inorganic chemistry"
+        ],
+        "examples": [
+          "biochemistry example",
+          "analytical chemistry example",
+          "organic chemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 5,
+        "flashcards": 20,
+        "key_points": 8,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 83,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Physics Explained",
+      "description": "Step-by-step tutorial covering Physics fundamentals and advanced topics",
+      "expected_notes_structure": {
+        "main_topics": [
+          "electromagnetism",
+          "mechanics",
+          "quantum physics",
+          "optics"
+        ],
+        "key_concepts": [
+          "mechanics",
+          "optics",
+          "quantum physics",
+          "electromagnetism",
+          "thermodynamics"
+        ],
+        "examples": [
+          "electromagnetism example",
+          "mechanics example",
+          "quantum physics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 13,
+        "key_points": 6,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Physics"
+    },
+    {
+      "id": 84,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "History Fundamentals",
+      "description": "Comprehensive History lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "civilizations",
+          "world wars",
+          "modern history",
+          "medieval history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "ancient history",
+          "medieval history",
+          "modern history",
+          "world wars"
+        ],
+        "examples": [
+          "civilizations example",
+          "world wars example",
+          "modern history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 12,
+        "key_points": 8,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "History"
+    },
+    {
+      "id": 85,
+      "category": "youtube_content",
+      "content_type": "lecture_video",
+      "title": "Computer Science Applications",
+      "description": "Educational audio content explaining Computer Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "artificial intelligence",
+          "software engineering",
+          "programming",
+          "algorithms"
+        ],
+        "key_concepts": [
+          "software engineering",
+          "artificial intelligence",
+          "algorithms",
+          "programming",
+          "data structures"
+        ],
+        "examples": [
+          "artificial intelligence example",
+          "software engineering example",
+          "programming example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 12,
+        "flashcards": 13,
+        "key_points": 8,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Computer Science"
+    },
+    {
+      "id": 86,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "Economics Fundamentals",
+      "description": "Audio lecture covering basic Economics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "development",
+          "microeconomics",
+          "finance",
+          "trade"
+        ],
+        "key_concepts": [
+          "macroeconomics",
+          "development",
+          "trade",
+          "microeconomics",
+          "finance"
+        ],
+        "examples": [
+          "development example",
+          "microeconomics example",
+          "finance example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 8,
+        "key_points": 9,
+        "action_items": 10
+      },
+      "difficulty_level": "advanced",
+      "subject": "Economics"
+    },
+    {
+      "id": 87,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Biology Explained",
+      "description": "Educational video explaining Biology concepts with visual aids and examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ecology",
+          "genetics",
+          "molecular biology",
+          "cell biology"
+        ],
+        "key_concepts": [
+          "molecular biology",
+          "ecology",
+          "cell biology",
+          "genetics",
+          "evolution"
+        ],
+        "examples": [
+          "ecology example",
+          "genetics example",
+          "molecular biology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 11,
+        "key_points": 12,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Biology"
+    },
+    {
+      "id": 88,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Psychology Explained",
+      "description": "Educational video explaining Psychology concepts with visual aids and examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "social psychology",
+          "cognitive psychology",
+          "developmental psychology",
+          "clinical psychology"
+        ],
+        "key_concepts": [
+          "cognitive psychology",
+          "clinical psychology",
+          "social psychology",
+          "behavioral psychology",
+          "developmental psychology"
+        ],
+        "examples": [
+          "social psychology example",
+          "cognitive psychology example",
+          "developmental psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 10,
+        "flashcards": 16,
+        "key_points": 12,
+        "action_items": 8
+      },
+      "difficulty_level": "beginner",
+      "subject": "Psychology"
+    },
+    {
+      "id": 89,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Economics Guide",
+      "description": "Step-by-step tutorial covering Economics fundamentals and advanced topics",
+      "expected_notes_structure": {
+        "main_topics": [
+          "microeconomics",
+          "trade",
+          "development",
+          "finance"
+        ],
+        "key_concepts": [
+          "development",
+          "trade",
+          "microeconomics",
+          "macroeconomics",
+          "finance"
+        ],
+        "examples": [
+          "microeconomics example",
+          "trade example",
+          "development example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 11,
+        "key_points": 12,
+        "action_items": 9
+      },
+      "difficulty_level": "advanced",
+      "subject": "Economics"
+    },
+    {
+      "id": 90,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "How to Business",
+      "description": "Educational video teaching Business concepts through hands-on examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "marketing",
+          "entrepreneurship",
+          "finance"
+        ],
+        "key_concepts": [
+          "management",
+          "marketing",
+          "entrepreneurship",
+          "finance",
+          "strategy"
+        ],
+        "examples": [
+          "management example",
+          "marketing example",
+          "entrepreneurship example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 10,
+        "flashcards": 11,
+        "key_points": 9,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Business"
+    },
+    {
+      "id": 91,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "History Guide",
+      "description": "Step-by-step tutorial covering History fundamentals and advanced topics",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ancient history",
+          "world wars",
+          "modern history",
+          "medieval history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "world wars",
+          "ancient history",
+          "medieval history",
+          "modern history"
+        ],
+        "examples": [
+          "ancient history example",
+          "world wars example",
+          "modern history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 15,
+        "flashcards": 19,
+        "key_points": 7,
+        "action_items": 5
+      },
+      "difficulty_level": "advanced",
+      "subject": "History"
+    },
+    {
+      "id": 92,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "Psychology Applications",
+      "description": "Comprehensive Psychology lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "social psychology",
+          "behavioral psychology",
+          "developmental psychology",
+          "cognitive psychology"
+        ],
+        "key_concepts": [
+          "developmental psychology",
+          "clinical psychology",
+          "behavioral psychology",
+          "social psychology",
+          "cognitive psychology"
+        ],
+        "examples": [
+          "social psychology example",
+          "behavioral psychology example",
+          "developmental psychology example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 14,
+        "key_points": 11,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Psychology"
+    },
+    {
+      "id": 93,
+      "category": "youtube_content",
+      "content_type": "lecture_video",
+      "title": "History Fundamentals",
+      "description": "Audio lecture covering basic History concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "medieval history",
+          "civilizations",
+          "modern history",
+          "ancient history"
+        ],
+        "key_concepts": [
+          "civilizations",
+          "ancient history",
+          "world wars",
+          "medieval history",
+          "modern history"
+        ],
+        "examples": [
+          "medieval history example",
+          "civilizations example",
+          "modern history example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 11,
+        "flashcards": 20,
+        "key_points": 11,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "History"
+    },
+    {
+      "id": 94,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "Chemistry Step-by-Step",
+      "description": "Comprehensive guide to learning Chemistry from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "physical chemistry",
+          "biochemistry",
+          "inorganic chemistry",
+          "organic chemistry"
+        ],
+        "key_concepts": [
+          "inorganic chemistry",
+          "organic chemistry",
+          "physical chemistry",
+          "analytical chemistry",
+          "biochemistry"
+        ],
+        "examples": [
+          "physical chemistry example",
+          "biochemistry example",
+          "inorganic chemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 16,
+        "key_points": 11,
+        "action_items": 4
+      },
+      "difficulty_level": "advanced",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 95,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "Mathematics Fundamentals",
+      "description": "Audio lecture covering basic Mathematics concepts and practical applications",
+      "expected_notes_structure": {
+        "main_topics": [
+          "probability",
+          "calculus",
+          "statistics",
+          "geometry"
+        ],
+        "key_concepts": [
+          "probability",
+          "statistics",
+          "calculus",
+          "algebra",
+          "geometry"
+        ],
+        "examples": [
+          "probability example",
+          "calculus example",
+          "statistics example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 7,
+        "flashcards": 14,
+        "key_points": 9,
+        "action_items": 6
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 96,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "Environmental Science Fundamentals",
+      "description": "Educational audio content explaining Environmental Science principles and real-world examples",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ecology",
+          "sustainability",
+          "renewable energy",
+          "conservation"
+        ],
+        "key_concepts": [
+          "renewable energy",
+          "climate change",
+          "sustainability",
+          "ecology",
+          "conservation"
+        ],
+        "examples": [
+          "ecology example",
+          "sustainability example",
+          "renewable energy example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 13,
+        "key_points": 12,
+        "action_items": 7
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Environmental Science"
+    },
+    {
+      "id": 97,
+      "category": "youtube_content",
+      "content_type": "educational_video",
+      "title": "Chemistry Tutorial",
+      "description": "Comprehensive video guide to understanding Chemistry principles",
+      "expected_notes_structure": {
+        "main_topics": [
+          "analytical chemistry",
+          "biochemistry",
+          "physical chemistry",
+          "organic chemistry"
+        ],
+        "key_concepts": [
+          "analytical chemistry",
+          "inorganic chemistry",
+          "biochemistry",
+          "physical chemistry",
+          "organic chemistry"
+        ],
+        "examples": [
+          "analytical chemistry example",
+          "biochemistry example",
+          "physical chemistry example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 14,
+        "flashcards": 12,
+        "key_points": 7,
+        "action_items": 7
+      },
+      "difficulty_level": "advanced",
+      "subject": "Chemistry"
+    },
+    {
+      "id": 98,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "Learn Environmental Science",
+      "description": "YouTube tutorial covering Environmental Science basics and practical implementation",
+      "expected_notes_structure": {
+        "main_topics": [
+          "ecology",
+          "sustainability",
+          "climate change",
+          "renewable energy"
+        ],
+        "key_concepts": [
+          "sustainability",
+          "ecology",
+          "renewable energy",
+          "climate change",
+          "conservation"
+        ],
+        "examples": [
+          "ecology example",
+          "sustainability example",
+          "climate change example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 9,
+        "flashcards": 13,
+        "key_points": 8,
+        "action_items": 9
+      },
+      "difficulty_level": "beginner",
+      "subject": "Environmental Science"
+    },
+    {
+      "id": 99,
+      "category": "youtube_content",
+      "content_type": "tutorial_video",
+      "title": "Mathematics Workshop",
+      "description": "Comprehensive guide to learning Mathematics from beginner to advanced",
+      "expected_notes_structure": {
+        "main_topics": [
+          "geometry",
+          "algebra",
+          "probability",
+          "calculus"
+        ],
+        "key_concepts": [
+          "statistics",
+          "calculus",
+          "geometry",
+          "algebra",
+          "probability"
+        ],
+        "examples": [
+          "geometry example",
+          "algebra example",
+          "probability example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 8,
+        "flashcards": 13,
+        "key_points": 11,
+        "action_items": 10
+      },
+      "difficulty_level": "beginner",
+      "subject": "Mathematics"
+    },
+    {
+      "id": 100,
+      "category": "youtube_content",
+      "content_type": "documentary",
+      "title": "Business Applications",
+      "description": "Comprehensive Business lecture with detailed explanations and case studies",
+      "expected_notes_structure": {
+        "main_topics": [
+          "management",
+          "strategy",
+          "finance",
+          "marketing"
+        ],
+        "key_concepts": [
+          "strategy",
+          "finance",
+          "entrepreneurship",
+          "management",
+          "marketing"
+        ],
+        "examples": [
+          "management example",
+          "strategy example",
+          "finance example"
+        ]
+      },
+      "expected_study_materials": {
+        "quiz_questions": 13,
+        "flashcards": 8,
+        "key_points": 11,
+        "action_items": 10
+      },
+      "difficulty_level": "intermediate",
+      "subject": "Business"
+    }
+  ],
+  "evaluation_criteria": {
+    "note_quality": {
+      "structure": "Notes should have clear headings, logical flow, and proper organization",
+      "completeness": "All key concepts and main topics should be covered",
+      "accuracy": "Information should be factually correct and well-explained",
+      "clarity": "Notes should be easy to understand and student-friendly"
+    },
+    "study_materials": {
+      "quiz_quality": "Questions should be relevant, challenging but fair, with clear explanations",
+      "flashcard_effectiveness": "Cards should cover key terms and concepts for effective memorization",
+      "summary_completeness": "Summary should capture all important points concisely",
+      "action_items_practicality": "Action items should be specific, actionable, and relevant"
+    },
+    "content_processing": {
+      "audio_transcription": "Audio content should be accurately transcribed and processed",
+      "video_analysis": "Video content should be properly analyzed for educational value",
+      "document_parsing": "Document content should be correctly extracted and structured",
+      "youtube_processing": "YouTube videos should be processed with proper context and metadata"
+    }
+  },
+  "test_scenarios": [
+    {
+      "scenario": "Mixed Content Processing",
+      "description": "Test processing multiple file types in a single session",
+      "files": [
+        "lecture_audio.mp3",
+        "slides.pdf",
+        "youtube_video_url"
+      ],
+      "expected_outcome": "Generate comprehensive notes combining all sources"
+    },
+    {
+      "scenario": "Long Form Content",
+      "description": "Test processing of lengthy content (2+ hours)",
+      "files": [
+        "long_lecture.mp4"
+      ],
+      "expected_outcome": "Generate detailed, well-structured notes without information loss"
+    },
+    {
+      "scenario": "Technical Content",
+      "description": "Test processing of highly technical or specialized content",
+      "files": [
+        "research_paper.pdf"
+      ],
+      "expected_outcome": "Generate accurate notes with proper technical terminology"
+    },
+    {
+      "scenario": "Multilingual Content",
+      "description": "Test processing of content in different languages",
+      "files": [
+        "spanish_lecture.mp3",
+        "french_document.pdf"
+      ],
+      "expected_outcome": "Generate notes in appropriate language with cultural context"
+    },
+    {
+      "scenario": "Poor Quality Audio",
+      "description": "Test processing of low-quality or noisy audio",
+      "files": [
+        "noisy_recording.wav"
+      ],
+      "expected_outcome": "Generate usable notes despite audio quality issues"
+    }
+  ],
+  "performance_metrics": {
+    "processing_time": {
+      "audio_1min": "< 30 seconds",
+      "video_10min": "< 2 minutes",
+      "document_10pages": "< 1 minute",
+      "youtube_15min": "< 3 minutes"
+    },
+    "accuracy_metrics": {
+      "transcription_accuracy": "> 90%",
+      "key_concept_extraction": "> 85%",
+      "study_material_relevance": "> 90%"
+    },
+    "user_satisfaction": {
+      "note_quality_rating": "> 4.0/5.0",
+      "study_material_usefulness": "> 4.0/5.0",
+      "overall_satisfaction": "> 4.0/5.0"
+    }
+  }
+}
