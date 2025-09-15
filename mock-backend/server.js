@@ -1455,6 +1455,37 @@ Content: ${content || prompt || 'No content provided'}`;
     }
 });
 
+// Chat stream response endpoint (for frontend compatibility)
+app.post('/chat/stream-response', async (req, res) => {
+    try {
+        console.log('💬 Chat stream response request received');
+        console.log('📝 Request body:', JSON.stringify(req.body, null, 2));
+        
+        const { message, searchType, toolId } = req.body;
+        
+        // Set headers for streaming response
+        res.setHeader('Content-Type', 'text/event-stream');
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Connection', 'keep-alive');
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'Cache-Control');
+        
+        // Send a simple response for now
+        const response = {
+            type: 'message',
+            content: `I received your message: "${message}". This is a mock response from the note-taking backend.`,
+            timestamp: new Date().toISOString()
+        };
+        
+        res.write(`data: ${JSON.stringify(response)}\n\n`);
+        res.end();
+        
+    } catch (error) {
+        console.error('❌ Chat stream response error:', error);
+        res.status(500).json({ error: 'Failed to process chat request' });
+    }
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ 
