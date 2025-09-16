@@ -1542,6 +1542,76 @@ app.post('/chat/stream-response', async (req, res) => {
     }
 });
 
+// YouTube video notes generation endpoint (handles text content)
+app.post('/v1/turbolearn/youtube-notes', async (req, res) => {
+    try {
+        console.log('🎥 YouTube notes generation request received');
+        console.log('Body:', JSON.stringify(req.body, null, 2));
+
+        const { content, prompt, youtubeUrl } = req.body;
+        
+        if (!content && !youtubeUrl) {
+            return res.status(400).json({
+                success: false,
+                error: 'Either content or youtubeUrl is required',
+                code: 'MISSING_CONTENT'
+            });
+        }
+
+        let context = '';
+
+        // Handle YouTube URL if provided
+        if (youtubeUrl) {
+            console.log('🎥 Processing YouTube URL...');
+            try {
+                const youtubeContent = await processYouTubeURL(youtubeUrl);
+                context += youtubeContent + '\n\n';
+            } catch (youtubeError) {
+                console.error('❌ YouTube processing error:', youtubeError.message);
+                return res.status(500).json({
+                    success: false,
+                    error: 'Failed to process YouTube URL',
+                    details: youtubeError.message
+                });
+            }
+        }
+
+        // Handle direct text content
+        if (content && content.trim()) {
+            console.log('📝 Processing text content...');
+            context += `\n\nText Content:\n${content}\n`;
+        }
+
+        if (!context.trim()) {
+            return res.status(400).json({
+                success: false,
+                error: 'No content available to process',
+                code: 'NO_CONTENT'
+            });
+        }
+
+        // Generate notes using AI
+        console.log('🤖 Generating notes with AI...');
+        const notes = await callAI(prompt || 'Generate comprehensive notes from this YouTube video transcript', context);
+
+        res.json({
+            success: true,
+            content: notes,
+            notes: notes,
+            type: 'youtube_notes',
+            timestamp: Date.now()
+        });
+
+    } catch (error) {
+        console.error('❌ YouTube notes generation error:', error);
+        res.status(500).json({ 
+            success: false, 
+            error: 'Failed to generate notes from YouTube video',
+            details: error.message 
+        });
+    }
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ 
@@ -1549,186 +1619,6 @@ app.get('/health', (req, res) => {
         message: 'Note-taking server is running',
         timestamp: Date.now()
     });
-});
-
-// ========================================
-// GLADIA TRANSCRIPTION API ENDPOINTS
-// ========================================
-
-// Process YouTube URL with Gladia transcription (dedicated endpoint)
-app.post('/v1/turbolearn/transcribe-youtube', async (req, res) => {
-    try {
-        const { url, language, model, diarization } = req.body;
-        
-        if (!url) {
-            return res.status(400).json({
-                success: false,
-                error: 'YouTube URL is required',
-                code: 'MISSING_URL'
-            });
-        }
-
-        // Validate YouTube URL
-        const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)[\w-]+/;
-        if (!youtubeRegex.test(url)) {
-            return res.status(400).json({
-                success: false,
-                error: 'Invalid YouTube URL format',
-                code: 'INVALID_URL'
-            });
-        }
-
-        console.log('🎥 Processing YouTube URL with Gladia:', url);
-        
-        // Extract video ID
-        const videoId = extractYouTubeVideoId(url);
-        console.log('📹 Video ID:', videoId);
-        
-        // Set transcription options
-        const options = {
-            language: language || 'auto',
-            model: model || 'large-v2',
-            task: 'transcribe',
-            diarization: diarization || false,
-            speaker_detection: false
-        };
-
-        console.log('⚙️  Transcription options:', options);
-
-        // Use Gladia API if available, otherwise fallback to existing method
-        let transcript;
-        let metadata = {};
-
-        if (gladiaService) {
-            try {
-                console.log('🤖 Using Gladia API for YouTube transcription...');
-                
-                const gladiaResult = await gladiaService.transcribeYouTubeVideo(url, options);
-                
-                if (gladiaResult.success) {
-                    const formattedResult = gladiaService.formatTranscriptionResult(gladiaResult);
-                    
-                    if (formattedResult.success && formattedResult.transcript) {
-                        transcript = formattedResult.transcript;
-                        metadata = formattedResult.metadata;
-                        console.log('✅ Gladia transcription completed successfully!');
-                    } else {
-                        throw new Error(formattedResult.error || 'Gladia transcription failed');
-                    }
-                } else {
-                    throw new Error(gladiaResult.error || 'Gladia API failed');
-                }
-            } catch (gladiaError) {
-                console.warn('⚠️  Gladia API failed, using fallback method:', gladiaError.message);
-                // Fallback to existing method
-                transcript = await processYouTubeURL(url);
-            }
-        } else {
-            console.log('⚠️  Gladia service not available, using fallback method');
-            transcript = await processYouTubeURL(url);
-        }
-
-        // Add YouTube-specific metadata
-        metadata = {
-            ...metadata,
-            source: 'youtube',
-            url: url,
-            videoId: videoId,
-            transcriptionService: gladiaService ? 'gladia' : 'openai-whisper'
-        };
-
-        res.json({
-            success: true,
-            transcript: transcript,
-            metadata: metadata,
-            filename: `youtube-${videoId}`,
-            type: 'youtube_transcription_completed',
-            timestamp: Date.now(),
-            options: options
-        });
-
-    } catch (error) {
-        console.error('❌ YouTube transcription error:', error);
-        
-        let errorMessage = 'Internal server error';
-        let errorCode = 'INTERNAL_ERROR';
-        
-        if (error.message.includes('Video unavailable')) {
-            errorMessage = 'Video is unavailable or private';
-            errorCode = 'VIDEO_UNAVAILABLE';
-        } else if (error.message.includes('network')) {
-            errorMessage = 'Network error while processing video';
-            errorCode = 'NETWORK_ERROR';
-        }
-        
-        res.status(500).json({
-            success: false,
-            error: errorMessage,
-            details: error.message,
-            code: errorCode
-        });
-    }
-});
-
-// Get supported languages for Gladia
-app.get('/v1/turbolearn/transcribe/languages', async (req, res) => {
-    try {
-        const languages = [
-            { code: 'en', name: 'English' },
-            { code: 'es', name: 'Spanish' },
-            { code: 'fr', name: 'French' },
-            { code: 'de', name: 'German' },
-            { code: 'it', name: 'Italian' },
-            { code: 'pt', name: 'Portuguese' },
-            { code: 'ru', name: 'Russian' },
-            { code: 'ja', name: 'Japanese' },
-            { code: 'ko', name: 'Korean' },
-            { code: 'zh', name: 'Chinese' },
-            { code: 'auto', name: 'Auto-detect' }
-        ];
-
-        res.json({
-            success: true,
-            languages: languages,
-            timestamp: Date.now()
-        });
-
-    } catch (error) {
-        console.error('❌ Get languages error:', error);
-        res.status(500).json({
-            success: false,
-            error: 'Internal server error',
-            details: error.message,
-            code: 'INTERNAL_ERROR'
-        });
-    }
-});
-
-// Get supported models for Gladia
-app.get('/v1/turbolearn/transcribe/models', async (req, res) => {
-    try {
-        const models = [
-            { id: 'large-v2', name: 'Large V2 (Recommended)', description: 'Best accuracy for most languages' },
-            { id: 'large', name: 'Large', description: 'Good balance of speed and accuracy' },
-            { id: 'medium', name: 'Medium', description: 'Faster processing, good accuracy' },
-            { id: 'small', name: 'Small', description: 'Fastest processing, basic accuracy' }
-        ];
-
-        res.json({
-            success: true,
-            models: models,
-            timestamp: Date.now()
-        });
-
-    } catch (error) {
-        console.error('❌ Get models error:', error);
-        res.status(500).json({
-            success: false,
-            error: 'Internal server error',
-            details: error.message,
-            code: 'INTERNAL_ERROR'
-        });
-    }
 });
 
 // Start server
@@ -1742,7 +1632,5 @@ app.listen(PORT, () => {
     } else {
         console.log(`⚠️  Gladia transcription service disabled (no API key)`);
     }
-    console.log(`🎥 YouTube transcription: POST /v1/turbolearn/transcribe-youtube`);
-    console.log(`🌍 Supported languages: GET /v1/turbolearn/transcribe/languages`);
-    console.log(`🤖 Supported models: GET /v1/turbolearn/transcribe/models`);
+    console.log(`🎥 YouTube notes: POST /v1/turbolearn/youtube-notes`);
 });
