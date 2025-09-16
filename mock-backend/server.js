@@ -1,3 +1,6 @@
+// Load environment variables first
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -5,10 +8,24 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const GladiaService = require('./services/gladiaService');
 
 // API Keys
 const OPENAI_API_KEY = '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';
 const HUGGING_FACE_API_KEY = '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';
+
+// Initialize Gladia service (only if API key is available)
+let gladiaService = null;
+if (process.env.GLADIA_API_KEY) {
+    try {
+        gladiaService = new GladiaService();
+        console.log('✅ Gladia transcription service initialized');
+    } catch (error) {
+        console.warn('⚠️  Failed to initialize Gladia service:', error.message);
+    }
+} else {
+    console.warn('⚠️  GLADIA_API_KEY not found - using fallback transcription methods');
+}
 // Simple UUID generator function
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -349,7 +366,7 @@ async function transcribeWithOpenAIWhisper(audioFilePath) {
     }
 }
 
-// YouTube processing function using OpenAI Whisper API
+// YouTube processing function with Gladia API (primary) and OpenAI Whisper (fallback)
 async function processYouTubeURL(url) {
     try {
         console.log('🎥 Processing YouTube URL:', url);
@@ -361,7 +378,46 @@ async function processYouTubeURL(url) {
         }
         
         console.log('📺 Extracted video ID:', videoId);
-        console.log('🤖 Using OpenAI Whisper for transcription...');
+        
+        // Try Gladia API first if available
+        if (gladiaService) {
+            try {
+                console.log('🤖 Using Gladia API for YouTube transcription...');
+                
+                const gladiaResult = await gladiaService.transcribeYouTubeVideo(url, {
+                    language: 'auto',
+                    model: 'large-v2',
+                    diarization: false,
+                    speaker_detection: false
+                });
+                
+                if (gladiaResult.success) {
+                    const formattedResult = gladiaService.formatTranscriptionResult(gladiaResult);
+                    
+                    if (formattedResult.success && formattedResult.transcript) {
+                        console.log('🎉 Gladia YouTube transcription completed successfully!');
+                        console.log('📊 Transcript length:', formattedResult.transcript.length, 'characters');
+                        console.log('📝 Transcript preview:', formattedResult.transcript.substring(0, 200) + '...');
+                        return formattedResult.transcript;
+                    } else {
+                        console.warn('⚠️  Gladia transcription failed, falling back to OpenAI Whisper');
+                        throw new Error(formattedResult.error || 'Gladia transcription failed');
+                    }
+                } else {
+                    console.warn('⚠️  Gladia API error, falling back to OpenAI Whisper:', gladiaResult.error);
+                    throw new Error(gladiaResult.error || 'Gladia API failed');
+                }
+                
+            } catch (gladiaError) {
+                console.warn('⚠️  Gladia API failed, falling back to OpenAI Whisper:', gladiaError.message);
+                // Continue to fallback method
+            }
+        } else {
+            console.log('⚠️  Gladia service not available, using OpenAI Whisper fallback');
+        }
+        
+        // Fallback to existing OpenAI Whisper method
+        console.log('🤖 Using OpenAI Whisper for transcription (fallback)...');
         
         try {
             // Download YouTube audio
@@ -370,7 +426,7 @@ async function processYouTubeURL(url) {
             // Transcribe with OpenAI Whisper
             const transcript = await transcribeWithOpenAIWhisper(audioFilePath);
             
-            console.log('🎉 YouTube processing completed successfully!');
+            console.log('🎉 YouTube processing completed successfully (fallback method)!');
             return transcript;
             
         } catch (downloadError) {
@@ -1495,10 +1551,198 @@ app.get('/health', (req, res) => {
     });
 });
 
+// ========================================
+// GLADIA TRANSCRIPTION API ENDPOINTS
+// ========================================
+
+// Process YouTube URL with Gladia transcription (dedicated endpoint)
+app.post('/v1/turbolearn/transcribe-youtube', async (req, res) => {
+    try {
+        const { url, language, model, diarization } = req.body;
+        
+        if (!url) {
+            return res.status(400).json({
+                success: false,
+                error: 'YouTube URL is required',
+                code: 'MISSING_URL'
+            });
+        }
+
+        // Validate YouTube URL
+        const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)[\w-]+/;
+        if (!youtubeRegex.test(url)) {
+            return res.status(400).json({
+                success: false,
+                error: 'Invalid YouTube URL format',
+                code: 'INVALID_URL'
+            });
+        }
+
+        console.log('🎥 Processing YouTube URL with Gladia:', url);
+        
+        // Extract video ID
+        const videoId = extractYouTubeVideoId(url);
+        console.log('📹 Video ID:', videoId);
+        
+        // Set transcription options
+        const options = {
+            language: language || 'auto',
+            model: model || 'large-v2',
+            task: 'transcribe',
+            diarization: diarization || false,
+            speaker_detection: false
+        };
+
+        console.log('⚙️  Transcription options:', options);
+
+        // Use Gladia API if available, otherwise fallback to existing method
+        let transcript;
+        let metadata = {};
+
+        if (gladiaService) {
+            try {
+                console.log('🤖 Using Gladia API for YouTube transcription...');
+                
+                const gladiaResult = await gladiaService.transcribeYouTubeVideo(url, options);
+                
+                if (gladiaResult.success) {
+                    const formattedResult = gladiaService.formatTranscriptionResult(gladiaResult);
+                    
+                    if (formattedResult.success && formattedResult.transcript) {
+                        transcript = formattedResult.transcript;
+                        metadata = formattedResult.metadata;
+                        console.log('✅ Gladia transcription completed successfully!');
+                    } else {
+                        throw new Error(formattedResult.error || 'Gladia transcription failed');
+                    }
+                } else {
+                    throw new Error(gladiaResult.error || 'Gladia API failed');
+                }
+            } catch (gladiaError) {
+                console.warn('⚠️  Gladia API failed, using fallback method:', gladiaError.message);
+                // Fallback to existing method
+                transcript = await processYouTubeURL(url);
+            }
+        } else {
+            console.log('⚠️  Gladia service not available, using fallback method');
+            transcript = await processYouTubeURL(url);
+        }
+
+        // Add YouTube-specific metadata
+        metadata = {
+            ...metadata,
+            source: 'youtube',
+            url: url,
+            videoId: videoId,
+            transcriptionService: gladiaService ? 'gladia' : 'openai-whisper'
+        };
+
+        res.json({
+            success: true,
+            transcript: transcript,
+            metadata: metadata,
+            filename: `youtube-${videoId}`,
+            type: 'youtube_transcription_completed',
+            timestamp: Date.now(),
+            options: options
+        });
+
+    } catch (error) {
+        console.error('❌ YouTube transcription error:', error);
+        
+        let errorMessage = 'Internal server error';
+        let errorCode = 'INTERNAL_ERROR';
+        
+        if (error.message.includes('Video unavailable')) {
+            errorMessage = 'Video is unavailable or private';
+            errorCode = 'VIDEO_UNAVAILABLE';
+        } else if (error.message.includes('network')) {
+            errorMessage = 'Network error while processing video';
+            errorCode = 'NETWORK_ERROR';
+        }
+        
+        res.status(500).json({
+            success: false,
+            error: errorMessage,
+            details: error.message,
+            code: errorCode
+        });
+    }
+});
+
+// Get supported languages for Gladia
+app.get('/v1/turbolearn/transcribe/languages', async (req, res) => {
+    try {
+        const languages = [
+            { code: 'en', name: 'English' },
+            { code: 'es', name: 'Spanish' },
+            { code: 'fr', name: 'French' },
+            { code: 'de', name: 'German' },
+            { code: 'it', name: 'Italian' },
+            { code: 'pt', name: 'Portuguese' },
+            { code: 'ru', name: 'Russian' },
+            { code: 'ja', name: 'Japanese' },
+            { code: 'ko', name: 'Korean' },
+            { code: 'zh', name: 'Chinese' },
+            { code: 'auto', name: 'Auto-detect' }
+        ];
+
+        res.json({
+            success: true,
+            languages: languages,
+            timestamp: Date.now()
+        });
+
+    } catch (error) {
+        console.error('❌ Get languages error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal server error',
+            details: error.message,
+            code: 'INTERNAL_ERROR'
+        });
+    }
+});
+
+// Get supported models for Gladia
+app.get('/v1/turbolearn/transcribe/models', async (req, res) => {
+    try {
+        const models = [
+            { id: 'large-v2', name: 'Large V2 (Recommended)', description: 'Best accuracy for most languages' },
+            { id: 'large', name: 'Large', description: 'Good balance of speed and accuracy' },
+            { id: 'medium', name: 'Medium', description: 'Faster processing, good accuracy' },
+            { id: 'small', name: 'Small', description: 'Fastest processing, basic accuracy' }
+        ];
+
+        res.json({
+            success: true,
+            models: models,
+            timestamp: Date.now()
+        });
+
+    } catch (error) {
+        console.error('❌ Get models error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal server error',
+            details: error.message,
+            code: 'INTERNAL_ERROR'
+        });
+    }
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📝 Note-taking agent ready!`);
     console.log(`🤖 OpenAI GPT-4o API integration active`);
     console.log(`🎨 Mermaid diagram support enabled`);
+    if (gladiaService) {
+        console.log(`🎤 Gladia transcription service active`);
+    } else {
+        console.log(`⚠️  Gladia transcription service disabled (no API key)`);
+    }
+    console.log(`🎥 YouTube transcription: POST /v1/turbolearn/transcribe-youtube`);
+    console.log(`🌍 Supported languages: GET /v1/turbolearn/transcribe/languages`);
+    console.log(`🤖 Supported models: GET /v1/turbolearn/transcribe/models`);
 });
