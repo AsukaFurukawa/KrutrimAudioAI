@@ -894,43 +894,16 @@ async function processAudioFile(url, filename) {
     try {
         console.log(`🎵 Processing audio file: ${filename}`);
         
-        // For now, we'll use OpenAI's Whisper API for transcription
-        // This requires the OpenAI API key we're already using
-        
         // Download the file first
         const tempFilePath = await downloadFile(url, filename);
         
-        // Create form data for Whisper API
-        const formData = new FormData();
-        const fileBuffer = fs.readFileSync(tempFilePath);
-        const blob = new Blob([fileBuffer], { type: 'audio/wav' });
-        formData.append('file', blob, filename);
-        formData.append('model', 'whisper-1');
+        // Use the existing OpenAI Whisper function that works properly
+        const transcript = await transcribeWithOpenAIWhisper(tempFilePath);
         
-        // Call OpenAI Whisper API
-        const whisperResponse = await fetch('https://api.openai.com/v1/audio/transcriptions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer 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`
-            },
-            body: formData
-        });
-        
-        // Clean up temp file
-        fs.unlink(tempFilePath, (err) => {
-            if (err) console.error('Error deleting temp file:', err);
-        });
-        
-        if (whisperResponse.ok) {
-            const transcription = await whisperResponse.json();
-            console.log('✅ Audio transcription successful');
-            const transcript = transcription.text;
-            console.log('📝 Transcribed content:', transcript);
-            console.log('📊 Content length:', transcript.length, 'characters');
-            return transcript;
-        } else {
-            throw new Error(`Whisper API error: ${whisperResponse.status}`);
-        }
+        console.log('✅ Audio transcription successful');
+        console.log('📝 Transcribed content:', transcript);
+        console.log('📊 Content length:', transcript.length, 'characters');
+        return transcript;
         
     } catch (error) {
         console.error('❌ Audio processing error:', error);
