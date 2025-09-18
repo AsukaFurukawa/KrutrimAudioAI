@@ -366,7 +366,7 @@ async function transcribeWithOpenAIWhisper(audioFilePath) {
     }
 }
 
-// YouTube processing function with Gladia API (primary) and OpenAI Whisper (fallback)
+// YouTube processing function using youtube-transcript-api (fast and reliable)
 async function processYouTubeURL(url) {
     try {
         console.log('🎥 Processing YouTube URL:', url);
@@ -379,73 +379,66 @@ async function processYouTubeURL(url) {
         
         console.log('📺 Extracted video ID:', videoId);
         
-        // Try Gladia API first if available
-        if (gladiaService) {
-            try {
-                console.log('🤖 Using Gladia API for YouTube transcription...');
-                
-                const gladiaResult = await gladiaService.transcribeYouTubeVideo(url, {
-                    language: 'auto',
-                    model: 'large-v2',
-                    diarization: false,
-                    speaker_detection: false
-                });
-                
-                if (gladiaResult.success) {
-                    const formattedResult = gladiaService.formatTranscriptionResult(gladiaResult);
-                    
-                    if (formattedResult.success && formattedResult.transcript) {
-                        console.log('🎉 Gladia YouTube transcription completed successfully!');
-                        console.log('📊 Transcript length:', formattedResult.transcript.length, 'characters');
-                        console.log('📝 Transcript preview:', formattedResult.transcript.substring(0, 200) + '...');
-                        return formattedResult.transcript;
-                    } else {
-                        console.warn('⚠️  Gladia transcription failed, falling back to OpenAI Whisper');
-                        throw new Error(formattedResult.error || 'Gladia transcription failed');
-                    }
-                } else {
-                    console.warn('⚠️  Gladia API error, falling back to OpenAI Whisper:', gladiaResult.error);
-                    throw new Error(gladiaResult.error || 'Gladia API failed');
-                }
-                
-            } catch (gladiaError) {
-                console.warn('⚠️  Gladia API failed, falling back to OpenAI Whisper:', gladiaError.message);
-                // Continue to fallback method
-            }
-        } else {
-            console.log('⚠️  Gladia service not available, using OpenAI Whisper fallback');
-        }
-        
-        // Fallback to existing OpenAI Whisper method
-        console.log('🤖 Using OpenAI Whisper for transcription (fallback)...');
+        // Use youtube-transcript-api Python script for fast transcription
+        console.log('🚀 Using youtube-transcript-api for fast transcription...');
         
         try {
-            // Download YouTube audio
-            const audioFilePath = await downloadYouTubeAudio(videoId);
+            const { spawn } = require('child_process');
+            const path = require('path');
             
-            // Transcribe with OpenAI Whisper
-            const transcript = await transcribeWithOpenAIWhisper(audioFilePath);
+            // Get the path to our Python script
+            const scriptPath = path.join(__dirname, '..', 'youtube_transcription.py');
             
-            console.log('🎉 YouTube processing completed successfully (fallback method)!');
-            return transcript;
+            return new Promise((resolve, reject) => {
+                const pythonProcess = spawn('python3', [scriptPath, url, 'en'], {
+                    stdio: ['pipe', 'pipe', 'pipe']
+                });
+                
+                let stdout = '';
+                let stderr = '';
+                
+                pythonProcess.stdout.on('data', (data) => {
+                    stdout += data.toString();
+                });
+                
+                pythonProcess.stderr.on('data', (data) => {
+                    stderr += data.toString();
+                });
+                
+                pythonProcess.on('close', (code) => {
+                    if (code === 0) {
+                        try {
+                            const result = JSON.parse(stdout);
+                            
+                            if (result.success && result.transcript) {
+                                console.log('🎉 YouTube transcription completed successfully!');
+                                console.log('📊 Transcript length:', result.length, 'characters');
+                                console.log('📝 Transcript preview:', result.transcript.substring(0, 200) + '...');
+                                resolve(result.transcript);
+                            } else {
+                                console.error('❌ YouTube transcription failed:', result.error);
+                                reject(new Error(result.error || 'Transcription failed'));
+                            }
+                        } catch (parseError) {
+                            console.error('❌ Failed to parse Python script output:', parseError);
+                            reject(new Error('Failed to parse transcription result'));
+                        }
+                    } else {
+                        console.error('❌ Python script failed with code:', code);
+                        console.error('stderr:', stderr);
+                        reject(new Error(`Python script failed: ${stderr}`));
+                    }
+                });
+                
+                pythonProcess.on('error', (error) => {
+                    console.error('❌ Failed to start Python script:', error);
+                    reject(new Error(`Failed to start transcription: ${error.message}`));
+                });
+            });
             
-        } catch (downloadError) {
-            console.error('❌ YouTube processing failed:', downloadError.message);
-            
-            // If yt-dlp is not installed, provide helpful error message
-            if (downloadError.message.includes('yt-dlp')) {
-                return `YouTube processing requires yt-dlp installation.
-
-To enable YouTube video processing:
-1. Install yt-dlp: pip install yt-dlp
-2. Make sure it's available in PATH
-
-Error: ${downloadError.message}
-
-Alternative: Try uploading the audio file directly instead of YouTube URL.`;
-            }
-            
-            throw downloadError;
+        } catch (scriptError) {
+            console.error('❌ YouTube transcription script error:', scriptError);
+            throw new Error(`Transcription script failed: ${scriptError.message}`);
         }
         
     } catch (error) {
@@ -1605,5 +1598,5 @@ app.listen(PORT, () => {
     } else {
         console.log(`⚠️  Gladia transcription service disabled (no API key)`);
     }
-    console.log(`🎥 YouTube notes: POST /v1/turbolearn/youtube-notes`);
+    console.log(`🎥 YouTube notes: POST /v1/turbolearn/youtube-notes (using youtube-transcript-api)`);
 });
