@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: kruti-notes-proxy
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOCAL_BACKEND_URL
+        value: http://localhost:8080
