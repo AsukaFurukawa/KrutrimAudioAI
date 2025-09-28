@@ -37,6 +37,35 @@ app.get('/', (req, res) => {
     });
 });
 
+// MCP endpoint for Agent Bazaar
+app.post('/mcp', async (req, res) => {
+    try {
+        console.log('🤖 MCP: Received request from Agent Bazaar');
+        console.log('📝 MCP Request:', JSON.stringify(req.body, null, 2));
+        
+        // Forward to your cloud backend
+        const response = await axios({
+            method: 'POST',
+            url: `${LOCAL_BACKEND_URL}/v1/turbolearn/take-notes`,
+            data: req.body,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        console.log('✅ MCP: Response from backend:', response.data);
+        res.json(response.data);
+        
+    } catch (error) {
+        console.error('❌ MCP Error:', error.message);
+        res.status(500).json({
+            success: false,
+            error: 'MCP request failed',
+            message: error.message
+        });
+    }
+});
+
 // Proxy all requests to your local backend
 app.all('*', async (req, res) => {
     try {
