@@ -1715,6 +1715,74 @@ app.post('/v1/phone-login', (req, res) => {
     }
 });
 
+// Text-based chat endpoint for Agent Bazaar
+app.post('/v1/chat', async (req, res) => {
+    try {
+        console.log('💬 Chat: Received text message from Agent Bazaar');
+        console.log('📝 Message:', req.body);
+        
+        const { message } = req.body;
+        
+        if (!message) {
+            return res.status(400).json({
+                success: false,
+                error: 'Message is required',
+                message: 'Please provide a message to process'
+            });
+        }
+        
+        // Generate a helpful response about note-taking capabilities
+        const response = {
+            success: true,
+            message: `Hello! I'm your AI note-taking assistant. I can help you with:
+
+📝 **Note Generation**: I can create comprehensive notes from various content types
+🎤 **Audio Processing**: Upload MP3 files for transcription and note generation
+📄 **Document Processing**: Process PDFs and text documents
+🎥 **YouTube Videos**: Generate notes from YouTube video transcripts
+
+**What I can do:**
+- Transcribe audio files using OpenAI Whisper
+- Extract key points from documents
+- Generate structured notes with summaries
+- Create study materials and flashcards
+- Process YouTube videos for quick note-taking
+
+**How to use me:**
+1. Upload an audio file (MP3) for transcription
+2. Share a PDF document for analysis
+3. Provide a YouTube URL for video notes
+4. Send text content for note generation
+
+What would you like to work on today?`,
+            capabilities: [
+                'Audio transcription and note generation',
+                'PDF document processing',
+                'YouTube video note extraction',
+                'Text-based note creation',
+                'Study material generation'
+            ],
+            examples: [
+                'Upload an MP3 file of a lecture',
+                'Share a PDF of research papers',
+                'Provide a YouTube video URL',
+                'Send text content for notes'
+            ]
+        };
+        
+        console.log('✅ Chat: Response generated successfully');
+        res.status(200).json(response);
+        
+    } catch (error) {
+        console.error('❌ Chat error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal server error',
+            message: 'Chat processing failed'
+        });
+    }
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
