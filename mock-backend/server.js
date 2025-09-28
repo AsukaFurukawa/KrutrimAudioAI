@@ -995,8 +995,36 @@ app.post('/v1/turbolearn/take-notes', upload.array('files', 10), async (req, res
             for (const file of req.files) {
                 console.log(`Processing file: ${file.originalname} (${file.mimetype})`);
                 
-                // For now, just add file info to context
-                context += `\n\nFile: ${file.originalname}\nType: ${file.mimetype}\nSize: ${file.size} bytes\n`;
+                try {
+                    let fileContent = '';
+                    
+                    if (file.mimetype.includes('audio')) {
+                        console.log('🎵 Processing audio file...');
+                        // For audio files, we need transcription service
+                        fileContent = await transcribeWithOpenAIWhisper(file.path);
+                    } else if (file.mimetype.includes('pdf')) {
+                        console.log('📄 Processing PDF file...');
+                        // For PDF files, add basic info for now
+                        fileContent = `PDF content from ${file.originalname}. PDF parsing requires pdf-parse library installation.`;
+                    } else if (file.mimetype.includes('text') || file.mimetype.includes('document')) {
+                        console.log('📝 Processing document file...');
+                        // For text files, read the content
+                        fileContent = fs.readFileSync(file.path, 'utf8');
+                    } else {
+                        console.log('📎 Processing generic file...');
+                        fileContent = `File: ${file.originalname}\nType: ${file.mimetype}\nSize: ${file.size} bytes`;
+                    }
+                    
+                    context += `\n\n=== FILE CONTENT ===\n`;
+                    context += `File: ${file.originalname}\n`;
+                    context += `Type: ${file.mimetype}\n\n`;
+                    context += fileContent;
+                    context += `\n=== END FILE CONTENT ===\n`;
+                    
+                } catch (error) {
+                    console.error(`❌ Error processing file ${file.originalname}:`, error);
+                    context += `\n\nFile: ${file.originalname} (Processing failed: ${error.message})\n`;
+                }
             }
         }
 
@@ -1585,6 +1613,106 @@ app.get('/health', (req, res) => {
         message: 'Note-taking server is running',
         timestamp: Date.now()
     });
+});
+
+// Mock SSO login endpoint for frontend compatibility
+app.post('/v1/sso/login', (req, res) => {
+    console.log('🔐 Mock SSO login request received');
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    
+    try {
+        const { sso_auth, audience, isAnonymous } = req.body;
+        
+        // Validate required fields
+        if (!sso_auth) {
+            return res.status(400).json({
+                success: false,
+                error: 'SSO auth token is required',
+                message: 'Invalid request'
+            });
+        }
+        
+        // Return a mock successful authentication response matching the backend format
+        const mockResponse = {
+            success: true,
+            data: {
+                accessToken: 'mock-access-token-' + Date.now(),
+                refreshToken: 'mock-refresh-token-' + Date.now(),
+                user: {
+                    id: 'mock-user-id-' + Date.now(),
+                    email: 'test@example.com',
+                    name: 'Test User',
+                    phoneNumber: '+1234567890',
+                    isAnonymous: isAnonymous || false,
+                    audience: audience || 'anonymous'
+                },
+                authProvider: 'firebase',
+                isFirstTimeLogin: false
+            },
+            message: 'Mock authentication successful'
+        };
+        
+        console.log('✅ Mock SSO login successful');
+        res.status(200).json(mockResponse);
+        
+    } catch (error) {
+        console.error('❌ Mock SSO login error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal server error',
+            message: 'Authentication failed'
+        });
+    }
+});
+
+// Mock phone number login endpoint for frontend compatibility
+app.post('/v1/phone-login', (req, res) => {
+    console.log('📱 Mock phone login request received');
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    
+    try {
+        const { phoneNumber, countryCode } = req.body;
+        
+        // Validate required fields
+        if (!phoneNumber) {
+            return res.status(400).json({
+                success: false,
+                error: 'Phone number is required',
+                message: 'Invalid request'
+            });
+        }
+        
+        // Return a mock successful authentication response
+        const mockResponse = {
+            success: true,
+            data: {
+                accessToken: 'mock-phone-token-' + Date.now(),
+                refreshToken: 'mock-phone-refresh-token-' + Date.now(),
+                user: {
+                    id: 'mock-phone-user-' + Date.now(),
+                    phoneNumber: phoneNumber,
+                    countryCode: countryCode || '+1',
+                    name: 'Phone User',
+                    isAnonymous: false,
+                    audience: 'phone'
+                },
+                authProvider: 'phone',
+                isFirstTimeLogin: false
+            },
+            message: 'Mock phone authentication successful'
+        };
+        
+        console.log('✅ Mock phone login successful');
+        res.status(200).json(mockResponse);
+        
+    } catch (error) {
+        console.error('❌ Mock phone login error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal server error',
+            message: 'Phone authentication failed'
+        });
+    }
 });
 
 // Start server
