@@ -1,18 +1,17 @@
 {
-  "name": "note-taking-mcp-server",
+  "name": "kruti-notes-mcp-proxy",
   "version": "1.0.0",
-  "description": "MCP Server for Note-Taking Agent with Mindmaps and Flowcharts",
-  "main": "note-taking-server.js",
-  "type": "module",
+  "description": "Minimal MCP proxy for Kruti Notes Agent Bazaar integration",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node note-taking-server.js",
-    "dev": "node --watch note-taking-server.js"
+    "dev": "vercel dev",
+    "build": "echo 'No build step needed'",
+    "start": "node api/index.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.4.0",
-    "mermaid": "^10.9.0"
+    "axios": "^1.6.0"
   },
-  "keywords": ["mcp", "note-taking", "ai", "groq", "mindmap", "flowchart"],
-  "author": "Your Name",
-  "license": "MIT"
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

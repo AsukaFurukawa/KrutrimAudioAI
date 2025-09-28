@@ -23,3 +23,4 @@ A simple Node.js proxy server for Agent Bazaar integration.
 ## Endpoints
 - `GET /health` - Health check
 - `POST /v1/turbolearn/take-notes` - Proxy to mock-backend
+
