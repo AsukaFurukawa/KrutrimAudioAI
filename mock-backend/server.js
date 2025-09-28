@@ -1733,8 +1733,7 @@ app.post('/v1/chat', async (req, res) => {
         
         // Generate a helpful response about note-taking capabilities
         const response = {
-            success: true,
-            message: `Hello! I'm your AI note-taking assistant. I can help you with:
+            content: `Hello! I'm your AI note-taking assistant. I can help you with:
 
 📝 **Note Generation**: I can create comprehensive notes from various content types
 🎤 **Audio Processing**: Upload MP3 files for transcription and note generation
@@ -1755,19 +1754,8 @@ app.post('/v1/chat', async (req, res) => {
 4. Send text content for note generation
 
 What would you like to work on today?`,
-            capabilities: [
-                'Audio transcription and note generation',
-                'PDF document processing',
-                'YouTube video note extraction',
-                'Text-based note creation',
-                'Study material generation'
-            ],
-            examples: [
-                'Upload an MP3 file of a lecture',
-                'Share a PDF of research papers',
-                'Provide a YouTube video URL',
-                'Send text content for notes'
-            ]
+            role: "assistant",
+            type: "text"
         };
         
         console.log('✅ Chat: Response generated successfully');
