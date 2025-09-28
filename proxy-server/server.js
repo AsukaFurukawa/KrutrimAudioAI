@@ -5,8 +5,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Your local backend URL (this will be your localhost mock-backend)
-const LOCAL_BACKEND_URL = process.env.LOCAL_BACKEND_URL || 'http://localhost:8080';
+// Your cloud backend URL (deployed on Vercel)
+const LOCAL_BACKEND_URL = process.env.LOCAL_BACKEND_URL || 'https://krutrim-audio-ai-2jsh.vercel.app';
 
 // Middleware
 app.use(cors());
